@@ -4,10 +4,13 @@
     import items3 from "../json/item.json";
     import { confirm } from "../components/modals/modal.js";
     import { cart } from "../scripts/storable.js";
-
+    import Layout from "./+layout.svelte";
+    export let data;
+    const items6 = data.products;
     let value = "";
     let items2 = items3;
     let toggleView = 1;
+
     /**
      * @param {string | RegExp} value
      */
@@ -43,6 +46,7 @@
         on:input={() => search(value)}
     />
     <ListViewTypes bind:value={toggleView} />
+    {items6}
     <!-- else if content here -->
     {#if toggleView == 1}
         <div class="customClassName">

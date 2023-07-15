@@ -1,9 +1,6 @@
 <script>
   import { slide } from "svelte/transition";
 
-  /**
-   * @type {{ [x: string]: any; }}
-   */
   export let value;
   /**
    * @param {{ name: string; id: number; price: string; }[]} item

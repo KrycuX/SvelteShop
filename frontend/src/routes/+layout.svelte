@@ -28,11 +28,6 @@
 		display: flex;
 		align-items: center;
 	}
-	img {
-		padding: 0.4rem;
-		width: 1rem;
-		height: 1rem;
-	}
 	.navbar {
 		position: sticky;
 		top: 0;

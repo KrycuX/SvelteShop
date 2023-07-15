@@ -1,8 +1,8 @@
 <script>
-    import ItemComponent from "../lists/itemTypeOne.svelte";
-    import ListViewTypes from "../components/listViewTypes.svelte";
+    import ItemComponent from "../components/ListItems/itemTypeOne.svelte";
+    import ListViewTypes from "../components/ListViewTypes/listViewTypes.svelte";
     import items3 from "../json/item.json";
-    import { confirm } from "../modals/modal.js";
+    import { confirm } from "../components/modals/modal.js";
     import { cart } from "../scripts/storable.js";
 
     let value = "";

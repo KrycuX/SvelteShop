@@ -1,6 +1,6 @@
 <script>
-	import Header from "../components/navbar.svelte";
-	import "../style/style.css";
+	import Header from "../components/Navbar/navbar.svelte";
+	import "../assets/styles/style.css";
 </script>
 
 <svelte:head>

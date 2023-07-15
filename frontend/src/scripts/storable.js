@@ -25,7 +25,7 @@ function createCart() {
         if (index !== -1) {
           state.position[index].quantity += 1;
         } else {
-           /**@param */
+
           state.position.push({ id:id, item:{name : product.name , id:product.id, price: product.price} , quantity: 1 });
         }
         

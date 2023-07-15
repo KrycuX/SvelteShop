@@ -24,7 +24,7 @@
                     target="_blank"
                     rel="noopener noreferrer">Koszyk</a
                 >
-                <img src="/src/icons/koszyk.jpg" alt="" />
+                <img src="/src/assets/icons/koszyk.jpg" alt="" />
             </li>
         </ul>
     </nav>

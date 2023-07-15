@@ -6,7 +6,6 @@
    * @param {{ name: string; id: number; price: string; }[]} item
    */
   export let onClick = (item) => {};
-  export let type = "itemGalery";
   /**
    * @param {Element} node
    * @param {import("svelte/transition").SlideParams} options
@@ -28,40 +27,17 @@
 </script>
 
 <div
-  class={type}
+  class="itemBig"
   transition:fadeSlide={{ duration: 100 }}
   on:click={() => onClick(value)}
 >
-  {value["name"]}
+  <div class="imgContainer"><img src={value["thumbnail"]} alt="" /></div>
+  <div class="infoContainer">{value["title"]}</div>
 </div>
 
 <style>
-  .itemGalery {
-    flex: 1;
-    flex-basis: calc(30% - 10px);
-    min-width: calc(100% * (1 / 4) - 1px);
-    margin: 0 0px;
-    min-height: 16em;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin: 0.4em;
-    box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
-    transition: ease;
-  }
-  .itemList {
-    flex: 1;
-    min-width: 90%;
-    margin: 0 0px;
-    min-height: 5em;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin: 0.4em;
-    box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
-    transition: ease;
-  }
   .itemBig {
+    padding: 0.4em;
     flex: 1;
     width: 100%;
     margin: 0 0px;
@@ -72,6 +48,20 @@
     margin: 0.4em;
     box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     transition: ease;
+  }
+  img {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .imgContainer {
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+  }
+  .infoContainer {
+    padding: 1em;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
   .itemBig:hover,
   .itemGalery:hover,

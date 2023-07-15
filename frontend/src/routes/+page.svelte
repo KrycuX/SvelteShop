@@ -1,15 +1,17 @@
 <script>
-    import ItemComponent from "../components/ListItems/itemTypeOne.svelte";
     import ListViewTypes from "../components/ListViewTypes/listViewTypes.svelte";
+    import ListBigItems from "../components/List/listBigItems.svelte";
+    import ListGalery from "../components/List/listGalery.svelte";
+    import ListSmalList from "../components/List/listSmalList.svelte";
     import items3 from "../json/item.json";
     import { confirm } from "../components/modals/modal.js";
     import { cart } from "../scripts/storable.js";
-
+    import { ListType } from "../enums";
     export let data;
     let items6 = data.products;
     let value = "";
     let items2 = items3;
-    let toggleView = 1;
+    let toggleView = ListType.Galery;
     /**
      * @param {string | RegExp} value
      */
@@ -45,66 +47,18 @@
         on:input={() => search(value)}
     />
     <ListViewTypes bind:value={toggleView} />
-    {items6}
+
     <!-- else if content here -->
-    {#if toggleView == 1}
-        <div class="customClassName">
-            {#each items2 as item}
-                <ItemComponent
-                    value={item}
-                    onClick={addToBasket}
-                    type="itemGalery"
-                />
-            {/each}
-        </div>
-    {:else if toggleView == 2}
-        <div class="customClassNameList">
-            {#each items2 as item}
-                <ItemComponent
-                    value={item}
-                    onClick={addToBasket}
-                    type="itemList"
-                />
-            {/each}
-        </div>
-    {:else if toggleView == 3}
-        <div class="customClassNameBig">
-            {#each items2 as item}
-                <ItemComponent
-                    value={item}
-                    onClick={addToBasket}
-                    type="itemBig"
-                />
-            {/each}
-        </div>
+    {#if toggleView == ListType.Galery}
+        <ListGalery items={items6.products} onClick={addToBasket} />
+    {:else if toggleView == ListType.SmallList}
+        <ListSmalList items={items6.products} onClick={addToBasket} />
+    {:else if toggleView == ListType.BigItemList}
+        <ListBigItems items={items6.products} onClick={addToBasket} />
     {/if}
 </section>
 
 <style>
-    .customClassName {
-        flex: 1;
-        display: grid;
-        grid-template-columns: repeat(
-            auto-fill,
-            minmax(calc(100% * (1 / 3) - 1px), 33%)
-        );
-        flex-wrap: wrap;
-        align-content: flex-start;
-    }
-    .customClassNameList {
-        flex: 1;
-        display: grid;
-        min-width: 100%;
-        flex-wrap: wrap;
-        align-content: flex-start;
-    }
-    .customClassNameBig {
-        flex: 1;
-        display: block;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
     .searchBar {
         flex: 1;
         display: flex;

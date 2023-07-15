@@ -1,7 +1,7 @@
-import medusa from "../medusa.js";
+
 import { getProducts } from "../util/shared.js";
 
-let items=[]
+let items;
 export const load = async function(){
     productData()
     return{
@@ -13,6 +13,5 @@ export const load = async function(){
 const productData = async () => {
     const data = await getProducts();
     items = data;
-    console.log(items, 'products')
 }
 $: productData()

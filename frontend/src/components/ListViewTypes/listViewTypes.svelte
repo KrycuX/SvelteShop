@@ -1,46 +1,58 @@
 <script>
     export let value;
+    let class0 = "active";
+    let class1 = "";
+    let class2 = "";
 </script>
 
-<ul>
-    <li>
-        <div
-            on:click={() => {
-                value = 1;
-            }}
-        >
-            1
-        </div>
-    </li>
-    <li>
-        <div
-            on:click={() => {
-                value = 2;
-            }}
-        >
-            2
-        </div>
-    </li>
-    <li>
-        <div
-            on:click={() => {
-                value = 3;
-            }}
-        >
-            3
-        </div>
-    </li>
-</ul>
+<div>
+    <ul>
+        <li class={class0}>
+            <button
+                on:click={() => {
+                    value = 1;
+                    class0 = "active";
+                    class1 = "";
+                    class2 = "";
+                }}
+            >
+                1
+            </button>
+        </li>
+        <li class={class1}>
+            <button
+                on:click={() => {
+                    value = 2;
+                    class0 = "";
+                    class1 = "active";
+                    class2 = "";
+                }}
+            >
+                2
+            </button>
+        </li>
+        <li class={class2}>
+            <button
+                on:click={() => {
+                    value = 3;
+                    class0 = "";
+                    class1 = "";
+                    class2 = "active";
+                }}
+            >
+                3
+            </button>
+        </li>
+    </ul>
+</div>
 
 <style>
-    nav {
-        position: relative;
-        top: 0;
-        margin-top: 0em;
+    div {
+        flex: 1;
         display: flex;
-        justify-content: right;
-        align-items: center;
-        --background: var(--navbar-color);
+        top: 0;
+        left: 0;
+        position: fixed;
     }
     ul {
         position: relative;
@@ -61,7 +73,7 @@
         display: flex;
         height: 100%;
     }
-    ul div {
+    ul button {
         display: flex;
         height: 100%;
         align-items: center;
@@ -73,10 +85,14 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         transition: color 0.2s linear;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
     }
     ul div:focus {
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     }
+    .active,
     li:hover {
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     }

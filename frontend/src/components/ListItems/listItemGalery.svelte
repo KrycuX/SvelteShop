@@ -33,7 +33,7 @@
   on:click={() => onClick(value)}
 >
   <img src={value["thumbnail"]} alt="" />
-  <div class="infoContainer">{value["title"]}</div>
+  <div class="infoContainer">{value.title}</div>
 </div>
 
 <style>

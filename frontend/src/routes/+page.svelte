@@ -3,26 +3,28 @@
     import ListBigItems from "../components/List/listBigItems.svelte";
     import ListGalery from "../components/List/listGalery.svelte";
     import ListSmalList from "../components/List/listSmalList.svelte";
-    import items3 from "../json/item.json";
     import { confirm } from "../components/modals/modal.js";
     import { cart } from "../scripts/storable.js";
     import { ListType } from "../enums";
+
     export let data;
-    let items6 = data.products;
+
+    let allItems = data.products;
+    let itemsFiltered = [...allItems?.products]; // kopiowanie listy
+
     let value = "";
-    let items2 = items3;
+
     let toggleView = ListType.Galery;
     /**
      * @param {string | RegExp} value
      */
     async function search(value) {
-        let re = new RegExp(value, "g");
-        items2 = items3.filter((item) => item.name.match(re));
+        let re = new RegExp(value, "gi");
+
+        itemsFiltered = allItems?.products.filter((item) =>
+            item.title.match(re)
+        );
     }
-    /**
-     @type {import('../json/item.json')}
-     */
-    let basket = [];
 
     /**
      * @param {{ name: string; id: number; price: string; }[]} itemForBasket
@@ -50,23 +52,25 @@
 
     <!-- else if content here -->
     {#if toggleView == ListType.Galery}
-        <ListGalery items={items6.products} onClick={addToBasket} />
+        <ListGalery items={itemsFiltered} onClick={addToBasket} />
     {:else if toggleView == ListType.SmallList}
-        <ListSmalList items={items6.products} onClick={addToBasket} />
+        <ListSmalList items={itemsFiltered} onClick={addToBasket} />
     {:else if toggleView == ListType.BigItemList}
-        <ListBigItems items={items6.products} onClick={addToBasket} />
+        <ListBigItems items={itemsFiltered} onClick={addToBasket} />
     {/if}
 </section>
 
 <style>
     .searchBar {
         flex: 1;
+        position: fixed;
+        top: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 2em;
         font-size: 1.2rem;
-        width: 100%;
+        width: 50%;
         border-radius: 0.5em;
     }
 </style>

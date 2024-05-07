@@ -1,47 +1,41 @@
-<script>
+<script lang="ts">
     import ListViewTypes from "../components/ListViewTypes/listViewTypes.svelte";
     import ListBigItems from "../components/List/listBigItems.svelte";
     import ListGalery from "../components/List/listGalery.svelte";
     import ListSmalList from "../components/List/listSmalList.svelte";
     import { confirm } from "../components/modals/modal.js";
-    import { cart } from "../scripts/storable.js";
+    import type { Cart } from "../models/cart";
     import { ListType } from "../enums";
+    import type { Position } from "../models/position";
 
     export let data;
-
+    let cart : Cart;
     let allItems = data.products;
-    let itemsFiltered = [...allItems?.products]; // kopiowanie listy
-
+    let itemsFiltered = [...allItems]; // kopiowanie listy
     let value = "";
-
     let toggleView = ListType.Galery;
-    /**
-     * @param {string | RegExp} value
-     */
-    async function search(value) {
+
+    async function search(value: string) {
         let re = new RegExp(value, "gi");
 
-        itemsFiltered = allItems?.products.filter((item) =>
-            item.title.match(re)
+        itemsFiltered = allItems?.filter((item) =>
+            item.Name.match(re)
         );
     }
-
-    /**
-     * @param {{ name: string; id: number; price: string; }[]} itemForBasket
-     */
-    async function addToBasket(itemForBasket) {
+    async function addToBasket(itemForBasket:Position) {
         const confirmed = await confirm({
             title: "Confirmation",
             message: "You sure?",
         });
         if (confirmed) {
-            cart.addItem(itemForBasket);
+            cart.AddProductToCart(itemForBasket);
         }
     }
 </script>
 
 <section>
-    <input
+    <div class="menuBar">
+        <input
         class="searchBar"
         type="text"
         placeholder="Search for items..."
@@ -49,6 +43,8 @@
         on:input={() => search(value)}
     />
     <ListViewTypes bind:value={toggleView} />
+    </div>
+    
 
     <!-- else if content here -->
     {#if toggleView == ListType.Galery}
@@ -62,15 +58,17 @@
 
 <style>
     .searchBar {
-        flex: 1;
-        position: fixed;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         min-height: 2em;
         font-size: 1.2rem;
-        width: 50%;
+        width: 75%;
         border-radius: 0.5em;
+    }
+    .menuBar{  
+        width: 100%; 
+        position: relative;
+        display:flex;
+        flex-flow: row wrap;
+        column-gap: 5%;
+        
     }
 </style>

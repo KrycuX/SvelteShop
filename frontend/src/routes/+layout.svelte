@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Header from "../components/Navbar/navbar.svelte";
 	import "../assets/styles/style.css";
 </script>

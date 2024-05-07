@@ -1,17 +1,12 @@
-<script>
-  import { slide } from "svelte/transition";
+<script lang="ts">
+  import { slide, type SlideParams } from "svelte/transition";
+  import { Position } from "../../models/position";
+    import type { Product } from "../../models/product";
 
-  export let value;
-  /**
-   * @param {{ name: string; id: number; price: string; }[]} item
-   */
-  export let onClick = (item) => {};
+  export let value:Product;
+  export let onClick = (item:Position) => {};
 
-  /**
-   * @param {Element} node
-   * @param {import("svelte/transition").SlideParams} options
-   */
-  function fadeSlide(node, options) {
+  function fadeSlide(node:Element, options:SlideParams) {
     const slideTrans = slide(node, options);
     return {
       duration: options.duration,
@@ -30,10 +25,10 @@
 <div
   class="itemGalery"
   transition:fadeSlide={{ duration: 100 }}
-  on:click={() => onClick(value)}
+  on:input={() => onClick(new Position(1,value))}
 >
-  <img src={value["thumbnail"]} alt="" />
-  <div class="infoContainer">{value.title}</div>
+  <img src={value.Picture} alt="" />
+  <div class="infoContainer">{value.Name}</div>
 </div>
 
 <style>
@@ -61,9 +56,8 @@
     padding: 1em;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-  .itemBig:hover,
-  .itemGalery:hover,
-  .itemList:hover {
+  .itemGalery:hover
+   {
     box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(32, 32, 32);
   }
   div:active {

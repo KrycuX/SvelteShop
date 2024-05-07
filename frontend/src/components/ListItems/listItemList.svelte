@@ -1,16 +1,12 @@
-<script>
-  import { slide } from "svelte/transition";
+<script lang="ts">
+    import { slide, type SlideParams } from "svelte/transition";
+    import type { Product } from "../../models/product";
+    import { Position } from "../../models/position";
 
-  export let value;
-  /**
-   * @param {{ name: string; id: number; price: string; }[]} item
-   */
-  export let onClick = (item) => {};
-  /**
-   * @param {Element} node
-   * @param {import("svelte/transition").SlideParams} options
-   */
-  function fadeSlide(node, options) {
+  export let value:Product;
+
+  export let onClick = (item:Position) => {};
+  function fadeSlide(node:Element, options:SlideParams) {
     const slideTrans = slide(node, options);
     return {
       duration: options.duration,
@@ -29,10 +25,10 @@
 <div
   class="itemList"
   transition:fadeSlide={{ duration: 100 }}
-  on:click={() => onClick(value)}
+  on:input={() => onClick(new Position(1,value))}
 >
-  <img src={value["thumbnail"]} alt="" />
-  <div class="infoContainer">{value["title"]}</div>
+  <img src={value.Picture} alt="" />
+  <div class="infoContainer">{value.Name}</div>
 </div>
 
 <style>
@@ -58,8 +54,6 @@
     align-items: center;
     width: 5%;
   }
-  .itemBig:hover,
-  .itemGalery:hover,
   .itemList:hover {
     box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(32, 32, 32);
   }

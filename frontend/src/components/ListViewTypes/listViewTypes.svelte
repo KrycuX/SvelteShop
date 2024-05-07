@@ -47,13 +47,7 @@
 </div>
 
 <style>
-    div {
-        flex: 1;
-        display: flex;
-        top: 0;
-        left: 0;
-        position: fixed;
-    }
+ 
     ul {
         position: relative;
         padding: 0;
@@ -89,7 +83,7 @@
         border: 0;
         outline: 0;
     }
-    ul div:focus {
+    div:focus {
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     }
     .active,

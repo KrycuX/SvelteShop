@@ -7,10 +7,21 @@
     import type { Cart } from "../models/cart";
     import { ListType } from "../enums";
     import type { Position } from "../models/position";
+    import type {Product} from "../models/product";
 
     export let data;
     let cart : Cart;
-    let allItems = data.products;
+    let product:Product =
+	{
+	Id:1,
+	Code: 'test',
+	Name: "testname",
+	Price: 12,
+	Picture:"https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png"
+
+	};
+    //let allItems = data.products;
+    let allItems = [product,product,product,product,product,product,product,product,product,product,product];
     let itemsFiltered = [...allItems]; // kopiowanie listy
     let value = "";
     let toggleView = ListType.Galery;
@@ -57,6 +68,7 @@
 </section>
 
 <style>
+   
     .searchBar {
         min-height: 2em;
         font-size: 1.2rem;

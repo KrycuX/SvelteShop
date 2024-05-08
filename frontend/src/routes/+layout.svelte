@@ -1,6 +1,20 @@
 <script lang="ts">
 	import Header from "../components/Navbar/navbar.svelte";
+	import Cart from "../components/Cart/cartInMainPage.svelte"
 	import "../assets/styles/style.css";
+    import { Position } from "../models/position";
+	import type { Product } from "../models/product";
+	let product:Product =
+	{
+	Id:1,
+	Code: 'test',
+	Name: "testname",
+	Price: 12,
+	Picture:"testpic"
+
+	};
+	let position:Position[]= [new Position(1,product)]
+
 </script>
 
 <svelte:head>
@@ -13,44 +27,41 @@
 	</div>
 
 	<main>
-		<slot />
+		<slot />	
 	</main>
-
 	<footer>
-		<div class="footerCont">
-			<p>Designed by Krycu</p>
-		</div>
-	</footer>
+		<p>Designed by Krycu</p>	
+</footer>
+	
 </div>
 
 <style>
-	.footerCont {
-		display: flex;
-		align-items: center;
-	}
 	.navbar {
 		position: sticky;
 		top: 0;
+		height: 7%;
 	}
 	.app {
-		display: flex;
-		flex-direction: column;
+		height: auto;
 		min-height: 100vh;
+		display: flex;
+		flex-direction: column;	
 	}
 
 	main {
-		flex: 1;
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
+		min-height: 85vh;
 		max-width: 80%;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
 
 	footer {
-		position: relative;
+		position: sticky;
+		bottom: 0;
 		color: white;
 		display: flex;
 		flex-direction: column;
@@ -61,7 +72,9 @@
 		font-family: "Courier New", Courier, monospace;
 		font-weight: bold;
 		letter-spacing: 0.2em;
+		height: 10%;
 	}
+
 
 	@media (min-width: 480px) {
 		footer {

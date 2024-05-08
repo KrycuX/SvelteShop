@@ -1,10 +1,8 @@
 <script lang="ts">
   import { slide, type SlideParams } from "svelte/transition";
-    import { Position } from "../../models/position";
-    import type { Product } from "../../models/product";
+    import { Position } from "../../../models/position";
 
-  export let value : Product;
-  export let onClick = (item:Position) => {};
+  export let value : Position;
  
   function fadeSlide(node:Element, options:SlideParams) {
     const slideTrans = slide(node, options);
@@ -25,17 +23,17 @@
 <div
   class="itemBig"
   transition:fadeSlide={{ duration: 100 }}
-  on:input={() => onClick(new Position(1,value))}
 >
-  <div class="imgContainer"><img src={value.Picture} alt="" /></div>
-  <div class="infoContainer">{value.Name}</div>
+  <div class="imgContainer"><img src={value.Product.Picture} alt="" /></div>
+  <div class="infoContainer">{value.Product.Name}</div>
 </div>
 
 <style>
   .itemBig {
     padding: 0.4em;
     flex: 1;
-    width: 100%;
+    width: 50%;
+    height: 10%;
     margin: 0 0px;
     min-height: 20em;
     justify-content: center;

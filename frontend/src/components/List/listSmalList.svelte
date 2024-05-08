@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Position } from "../../models/position";
     import type { Product } from "../../models/product";
-    import ItemComponent from "../ListItems/listItemList.svelte";
+    import ItemComponent from "./ListComponent/listItemList.svelte";
 
     export let items:Product[];
     export let onClick = (item:Position) => {};

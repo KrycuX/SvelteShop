@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { slide, type SlideParams } from "svelte/transition";
-    import type { Product } from "../../models/product";
-    import { Position } from "../../models/position";
+  import { slide, type SlideParams } from "svelte/transition";
+    import { Position } from "../../../models/position";
+    import type { Product } from "../../../models/product";
 
-  export let value:Product;
-
+  export let value : Product;
   export let onClick = (item:Position) => {};
+ 
   function fadeSlide(node:Element, options:SlideParams) {
     const slideTrans = slide(node, options);
     return {
@@ -23,38 +23,43 @@
 </script>
 
 <div
-  class="itemList"
+  class="itemBig"
   transition:fadeSlide={{ duration: 100 }}
   on:input={() => onClick(new Position(1,value))}
 >
-  <img src={value.Picture} alt="" />
+  <div class="imgContainer"><img src={value.Picture} alt="" /></div>
   <div class="infoContainer">{value.Name}</div>
 </div>
 
 <style>
-  .itemList {
+  .itemBig {
     padding: 0.4em;
     flex: 1;
-    min-width: 90%;
+    width: 100%;
     margin: 0 0px;
-    min-height: 5em;
-    justify-content: left;
+    min-height: 20em;
+    justify-content: center;
     align-items: center;
     display: flex;
     margin: 0.4em;
     box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     transition: ease;
   }
+  img {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .imgContainer {
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+  }
   .infoContainer {
     padding: 1em;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-  img {
-    justify-content: center;
-    align-items: center;
-    width: 5%;
-  }
-  .itemList:hover {
+  .itemBig:hover {
     box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(32, 32, 32);
   }
   div:active {

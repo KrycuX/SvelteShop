@@ -2,6 +2,7 @@
 	import Header from "../components/Navbar/navbar.svelte";
 	import Cart from "../components/Cart/cartInMainPage.svelte"
 	import "../assets/styles/style.css";
+	import SidebarPanels from 'svelte-sidebar-panels'
     import { Position } from "../models/position";
 	import type { Product } from "../models/product";
 	let product:Product =
@@ -24,11 +25,15 @@
 <div class="app">
 	<div class="navbar">
 		<Header />
+		
 	</div>
-
-	<main>
-		<slot />	
-	</main>
+	<div class="middle-container">
+		<main>
+			<slot />	
+		</main>
+		<Cart items = {position}/>	
+	</div>
+	
 	<footer>
 		<p>Designed by Krycu</p>	
 </footer>
@@ -47,10 +52,14 @@
 		display: flex;
 		flex-direction: column;	
 	}
-
+.middle-container
+{
+display: flex;
+flex-direction: row;
+}
 	main {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		padding: 1rem;
 		width: 100%;
 		min-height: 85vh;

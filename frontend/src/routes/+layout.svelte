@@ -10,7 +10,7 @@
 	Code: 'test',
 	Name: "testname",
 	Price: 12,
-	Picture:"testpic"
+	Picture:"https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png"
 
 	};
 	let position:Position[]= [new Position(1,product)]

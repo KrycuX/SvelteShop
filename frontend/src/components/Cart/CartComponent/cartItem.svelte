@@ -32,7 +32,7 @@
   .itemBig {
     padding: 0.4em;
     flex: 1;
-    width: 50%;
+    width: 25%;
     height: 10%;
     margin: 0 0px;
     min-height: 20em;
@@ -46,7 +46,7 @@
   img {
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 50%;
   }
   .imgContainer {
     justify-content: center;

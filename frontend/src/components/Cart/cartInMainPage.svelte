@@ -2,8 +2,6 @@
     import { fly, fade,type SlideParams } from 'svelte/transition';
     import type { Position } from "../../models/position";
     import ItemComponent from "./CartComponent/cartItem.svelte";
-
-   
     export let items:Position[];
     let sideBar_show = false;
     let button:Element;
@@ -20,7 +18,7 @@
     {#if sideBar_show}
     <button bind:this={button} on:click={()=>{sideBar_show =!sideBar_show;
     }} 
-        class="temp" transition:fly={{x: 250,opacity:1}}>
+        class="temp2" transition:fly={{x: 250,opacity:1}}>
        t
    </button>
     <div class="itemsContainer" transition:fly={{x: 250, opacity: 1}}>
@@ -34,9 +32,17 @@
 <style>
     .temp{
         top:50%;
+        position: absolute;
+        right: 0;
+        width: 2vh;
+        height: 2%;
+        
+    }
+    .temp2{
+        top:50%;
         float:left;
         position: relative;
-        width: 10%;
+        width: 2vh;
         height: 2%;
         
     }
@@ -45,12 +51,12 @@
         display: flex;
         right: 0;
         height: 100%;
-        
+        width: 15%;
     }
     .itemsContainer{
         float:right;
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
-        width: 90%;
+       
         
     }
    

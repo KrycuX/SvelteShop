@@ -1,6 +1,6 @@
 <script lang="ts">
   import { slide, type SlideParams } from "svelte/transition";
-    import { Position } from "../../../models/position";
+    import type { Position } from "../../../models/position";
 
   export let value : Position;
  

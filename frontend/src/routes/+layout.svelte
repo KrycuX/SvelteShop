@@ -2,7 +2,6 @@
 	import Header from "../components/Navbar/navbar.svelte";
 	import Cart from "../components/Cart/cartInMainPage.svelte"
 	import "../assets/styles/style.css";
-	import SidebarPanels from 'svelte-sidebar-panels'
     import { Position } from "../models/position";
 	import type { Product } from "../models/product";
 	let product:Product =

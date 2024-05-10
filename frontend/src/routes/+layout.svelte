@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from "../components/Navbar/navbar.svelte";
-	import Cart from "../components/Cart/cartInMainPage.svelte"
+
 	import "../assets/styles/style.css";
     import { Position } from "../models/position";
 	import type { Product } from "../models/product";
@@ -30,7 +30,6 @@
 		<main>
 			<slot />	
 		</main>
-		<Cart items = {position}/>	
 	</div>
 	
 	<footer>

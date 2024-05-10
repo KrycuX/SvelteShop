@@ -2,10 +2,12 @@
   import { slide, type SlideParams } from "svelte/transition";
     import type { Position } from "../../../models/position";
 
+
   export let value : Position;
  
   function fadeSlide(node:Element, options:SlideParams) {
     const slideTrans = slide(node, options);
+
     return {
       duration: options.duration,
       // @ts-ignore

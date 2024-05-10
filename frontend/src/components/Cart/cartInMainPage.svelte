@@ -1,7 +1,8 @@
 <script lang="ts">
-    import { fly, fade,type SlideParams } from 'svelte/transition';
+    import { fly, fade } from 'svelte/transition';
     import type { Position } from "../../models/position";
     import ItemComponent from "./CartComponent/cartItem.svelte";
+
     export let items:Position[];
     let sideBar_show = false;
     let button:Element;
@@ -47,17 +48,15 @@
         
     }
     .customClassNameBig {
-        position: fixed;
+        position: relative;
         display: flex;
         right: 0;
         height: 100%;
-        width: 15%;
+        width: 10%;
     }
     .itemsContainer{
-        float:right;
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
-       
-        
+
     }
    
 

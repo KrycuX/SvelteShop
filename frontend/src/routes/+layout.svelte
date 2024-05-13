@@ -61,8 +61,7 @@ flex-direction: row;
 		padding: 1rem;
 		width: 100%;
 		min-height: 85vh;
-		max-width: 80%;
-		margin: 0 auto;
+		margin: 0;
 		box-sizing: border-box;
 	}
 
@@ -81,7 +80,6 @@ flex-direction: row;
 		letter-spacing: 0.2em;
 		height: 10%;
 	}
-
 
 	@media (min-width: 480px) {
 		footer {

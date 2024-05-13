@@ -29,6 +29,7 @@
     let itemsFiltered = [...allItems]; // kopiowanie listy
     let value = "";
     let toggleView = ListType.Galery;
+    let sideBar_show = false;
     async function search(value: string) {
         let re = new RegExp(value, "gi");
 
@@ -50,7 +51,7 @@
 
 <section>
   
-    <div>
+    <div class="content {sideBar_show?'cart':''}">
         <div class="menuBar">
             <input
             class="searchBar"
@@ -73,14 +74,59 @@
         {/if}
     </div>
 
-
-    <CartComponent items = {position} />	
-   
+    <div class="flyingButton" on:click={()=>{sideBar_show =!sideBar_show;}} >
+        test
+   </div>
+   {#if sideBar_show === true}
+    <CartComponent items = {position} visibility={sideBar_show} />	
+   {/if}
 </section>
 
 <style>
-   section{
+ :root{
+    --content-width:100%
+ }
+   section{   
     display: flex;
+   }
+   .content{   
+    --animTime:0.0s;
+    width: 100%; 
+    animation: slideRight 0.1s linear 0s 1 normal forwards;
+   }  
+
+   .content.cart{
+    animation: slideLeft 0.1s linear 0s 1 normal forwards;
+
+   }
+    @keyframes slideRight{ 
+    from
+    {
+    width:75%;
+    }
+    To
+    {       
+    width:100%;
+    }
+   } 
+
+   @keyframes slideLeft{
+    from{
+      width:100%;
+    }
+    To{
+        width:75%;
+
+    }
+   }
+  
+   .flyingButton{
+        position: relative;
+        display: flex;   
+        right: 0;
+        top:50;
+        background-color: aliceblue;
+        text-align: center;
    }
     .searchBar {
         min-height: 2em;

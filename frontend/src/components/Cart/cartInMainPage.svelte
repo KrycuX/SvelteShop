@@ -22,8 +22,8 @@
         display: flex;
         right: 0;
         height: 100%;
-        width: 0%;
-       
+        width: 25%;
+        animation: slideRight 0.1s linear 0s 1 normal forwards;
    }
    .customClassNameBig.cart { 
     animation: slideLeft 0.1s linear 0s 1 normal forwards;
@@ -31,10 +31,26 @@
 
    @keyframes slideLeft{
     from{
-    width:0%
+    width:10%;
+    opacity:0;
+    visibility: hidden;
     }
     To{
-    width:25%
+    width:25%;
+    opacity:1;
+    visibility: visible;
+    }
+   }
+   @keyframes slideRight{
+    from{
+    width:25%;
+    opacity:1;
+    visibility: visible;
+    }
+    To{
+    width:10%;
+    opacity:0;
+    visibility: hidden;
     }
    }
     

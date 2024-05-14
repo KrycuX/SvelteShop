@@ -77,26 +77,28 @@
     <div class="flyingButton" on:click={()=>{sideBar_show =!sideBar_show;}} >
         test
    </div>
-   {#if sideBar_show === true}
+  
     <CartComponent items = {position} visibility={sideBar_show} />	
-   {/if}
+
 </section>
 
 <style>
- :root{
-    --content-width:100%
- }
+@media (prefers-reduced-motion: reduce) {
+    :root {
+      --nomotion: none;
+    }
+  }
    section{   
     display: flex;
+  
    }
    .content{   
-    --animTime:0.0s;
     width: 100%; 
     animation: slideRight 0.1s linear 0s 1 normal forwards;
    }  
 
    .content.cart{
-    animation: slideLeft 0.1s linear 0s 1 normal forwards;
+   animation: slideLeft 0.1s linear 0s 1 normal forwards;
 
    }
     @keyframes slideRight{ 
@@ -116,17 +118,15 @@
     }
     To{
         width:75%;
-
     }
    }
   
    .flyingButton{
-        position: relative;
-        display: flex;   
+        position:static;  
         right: 0;
         top:50;
         background-color: aliceblue;
-        text-align: center;
+
    }
     .searchBar {
         min-height: 2em;

@@ -1,13 +1,20 @@
 <script lang="ts">
+    import { CartState } from "../../enums/enums";
     import type { Position } from "../../models/position";
     import ItemComponent from "./CartComponent/cartItem.svelte";
 
     export let items:Position[];
-    export let visibility:boolean = false;
+    export let visibility:CartState = CartState.Load;
     </script>
 
-<div class="customClassNameBig {visibility?'cart':''}" >
-    <div class="flyingButton" on:click={()=>{visibility =!visibility;}} >
+<div class="customClassNameBig {visibility.toString()}" >
+    <div class="flyingButton" on:click={()=>{
+        if(visibility === CartState.Hide || visibility === CartState.Load)
+        visibility = CartState.Show;
+        else
+        visibility = CartState.Hide;
+        
+        }} >
         test
    </div>
     <div class="itemsContainer">
@@ -23,10 +30,12 @@
         margin-bottom: 2rem;
         right: 0;
         height: 85vh;
-        width:20%;
-        animation: slideRight 0.1s linear 0s 1 normal forwards;
-   }
-   .customClassNameBig.cart { 
+        width:1%;
+
+   }.customClassNameBig.Hide { 
+    animation: slideRight 0.1s linear 0s 1 normal forwards;
+}
+   .customClassNameBig.Show { 
  animation: slideLeft 0.1s linear 0s 1 normal forwards;
 }
 .flyingButton{

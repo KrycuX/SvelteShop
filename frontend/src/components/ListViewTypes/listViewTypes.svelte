@@ -49,26 +49,22 @@
 <style>
  
     ul {
-        position: relative;
         padding: 0;
         margin: 0;
-        height: 3em;
-        background: var(--background);
-        align-items: left;
-        list-style: none;
-        background-size: contain;
-        justify-content: left;
-        display: flex;
+        display: inline-block;
+        align-items: center;
+        list-style-type: none;
+        overflow: hidden;
+        padding: 0.1rem;
+        height: 100%;
     }
     li {
-        position: relative;
-        justify-content: center;
         align-items: center;
-        display: flex;
+        display: inline-block;
         height: 100%;
     }
     ul button {
-        display: flex;
+        display: inline-flex;
         height: 100%;
         align-items: center;
         padding: 0 2rem;

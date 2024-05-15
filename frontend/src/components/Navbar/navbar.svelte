@@ -22,9 +22,9 @@
                 <a
                     href="http://www.youtube.com"
                     target="_blank"
-                    rel="noopener noreferrer">Koszyk</a
+                    rel="noopener noreferrer">Koszyk <img src="/src/assets/icons/koszyk.jpg" alt="" /></a
                 >
-                <img src="/src/assets/icons/koszyk.jpg" alt="" />
+               
             </li>
         </ul>
     </nav>
@@ -37,38 +37,33 @@
         margin-top: 0em;
         display: flex;
         justify-content: right;
-        align-items: center;
         --background: var(--navbar-color);
     }
     svg {
         width: 2em;
-        height: 3em;
         display: block;
     }
     path {
-        fill: var(--background);
+        fill: black;
     }
     ul {
-        position: relative;
         padding: 0;
         margin: 0;
-        height: 3em;
-        background: var(--background);
+        display: inline-block;
         align-items: center;
-        list-style: none;
-        background-size: contain;
-        justify-content: center;
-        display: flex;
+        list-style-type: none;
+        overflow: hidden;
+        padding-bottom: 0.1rem;
     }
     li {
-        position: relative;
         justify-content: center;
         align-items: center;
-        display: flex;
+        display: inline-block;
         height: 100%;
     }
     nav a {
-        display: flex;
+        min-height: 100%;
+        display: inline-flex;
         height: 100%;
         align-items: center;
         padding: 0 2rem;

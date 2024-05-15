@@ -9,6 +9,7 @@
     import { ListType } from "../enums";
     import { Position } from "../models/position";
     import type {Product} from "../models/product";
+    import { CartState } from "../enums/enums";
 
     export let data;
 
@@ -28,7 +29,7 @@
     let itemsFiltered = [...allItems]; // kopiowanie listy
     let value = "";
     let toggleView = ListType.Galery;
-    let sideBar_show = false;
+    let sideBar_show = CartState.Load;
     async function search(value: string) {
         let re = new RegExp(value, "gi");
 
@@ -50,7 +51,7 @@
 
 <section>
   
-    <div class="content {sideBar_show?'cart':''}">
+    <div class="content {sideBar_show.toString()}">
         <div class="menuBar">
             <input
             class="searchBar"
@@ -73,7 +74,6 @@
         {/if}
     </div>
 
-  
     <CartComponent items = {position}  bind:visibility={sideBar_show}/>	
 
 </section>
@@ -82,14 +82,16 @@
 
    section{   
     display: flex;
-  
    }
+
    .content{   
     width: 100%; 
-    animation: slideRight 0.1s linear 0s 1 normal forwards;
-   }  
 
-   .content.cart{
+   }  
+   .content.Hide{
+    animation: slideRight 0.1s linear 0s 1 normal forwards;
+   }
+   .content.Show{
    animation: slideLeft 0.1s linear 0s 1 normal forwards;
    }
     @keyframes slideRight{ 
@@ -120,10 +122,8 @@
     }
     .menuBar{  
         width: 100%; 
-        position: relative;
-        display:flex;
+        display:inline-flex;
         flex-flow: row wrap;
-        column-gap: 5%;
-        
+        column-gap: 5%;      
     }
 </style>

@@ -47,7 +47,7 @@
 	.navbar {
 		position: sticky;
 		top: 0;
-		height: 7%;
+		height: 5vh;
 		box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
 		background-color: rgb(139, 179, 179);
 	}
@@ -81,14 +81,9 @@ flex-direction: row;
 		font-family: "Courier New", Courier, monospace;
 		font-weight: bold;
 		letter-spacing: 0.2em;
-		height: 10%;
+		height: 5vh;
 		box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
 
 	}
 
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
 </style>

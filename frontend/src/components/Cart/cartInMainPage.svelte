@@ -20,7 +20,7 @@
     .customClassNameBig {
         position: fixed;
         display: flex;
-    
+        margin-bottom: 2rem;
         right: 0;
         height: 85vh;
         width:20%;
@@ -34,7 +34,6 @@
         right: 0;
         top:50;
         background-color: aliceblue;
-
    }
    @keyframes slideLeft{
     from{
@@ -47,13 +46,9 @@
    @keyframes slideRight{
     from{
     width:20%;
-
-
     }
     To{
     width:1%;
-
-
     }
    }
     

@@ -79,11 +79,7 @@
 </section>
 
 <style>
-@media (prefers-reduced-motion: reduce) {
-    :root {
-      --nomotion: none;
-    }
-  }
+
    section{   
     display: flex;
   
@@ -95,7 +91,6 @@
 
    .content.cart{
    animation: slideLeft 0.1s linear 0s 1 normal forwards;
-
    }
     @keyframes slideRight{ 
     from

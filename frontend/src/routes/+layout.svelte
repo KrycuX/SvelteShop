@@ -38,18 +38,20 @@
 	
 </div>
 
-<style>
+<style>	.app {
+	height: auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;	
+}
 	.navbar {
 		position: sticky;
 		top: 0;
 		height: 7%;
+		box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
+		background-color: rgb(139, 179, 179);
 	}
-	.app {
-		height: auto;
-		min-height: 100vh;
-		display: flex;
-		flex-direction: column;	
-	}
+
 .middle-container
 {
 display: flex;
@@ -72,6 +74,7 @@ flex-direction: row;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		background-color: rgb(139, 179, 179);
 		align-items: center;
 		padding: 10px;
 		text-decoration: none;
@@ -79,6 +82,8 @@ flex-direction: row;
 		font-weight: bold;
 		letter-spacing: 0.2em;
 		height: 10%;
+		box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
+
 	}
 
 	@media (min-width: 480px) {

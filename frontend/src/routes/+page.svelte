@@ -3,7 +3,6 @@
     import ListBigItems from "../components/List/listBigItems.svelte";
     import ListGalery from "../components/List/listGalery.svelte";
     import ListSmalList from "../components/List/listSmalList.svelte";
-    import { fly, type FlyParams } from 'svelte/transition';
     import { confirm } from "../components/modals/modal.js";
     import type { Cart } from "../models/cart";
     import CartComponent from "../components/Cart/cartInMainPage.svelte"
@@ -74,11 +73,8 @@
         {/if}
     </div>
 
-    <div class="flyingButton" on:click={()=>{sideBar_show =!sideBar_show;}} >
-        test
-   </div>
   
-    <CartComponent items = {position} visibility={sideBar_show} />	
+    <CartComponent items = {position}  bind:visibility={sideBar_show}/>	
 
 </section>
 
@@ -104,30 +100,23 @@
     @keyframes slideRight{ 
     from
     {
-    width:75%;
+        padding-right:20%;
     }
     To
     {       
-    width:100%;
+    padding-right:0%;
     }
    } 
 
    @keyframes slideLeft{
     from{
-      width:100%;
+    padding-right:0%;
     }
     To{
-        width:75%;
+    padding-right:20%;
     }
    }
   
-   .flyingButton{
-        position:relative;  
-        right: 0;
-        top:50;
-        background-color: aliceblue;
-
-   }
     .searchBar {
         min-height: 2em;
         font-size: 1.2rem;

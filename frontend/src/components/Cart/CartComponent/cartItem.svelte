@@ -23,23 +23,23 @@
 </script>
 
 <div
-  class="itemBig"
-  transition:fadeSlide={{ duration: 100 }}
->
-  <div class="imgContainer"><img src={value.Product.Picture} alt="" /></div>
+  class="itemGalery"
+  transition:fadeSlide={{ duration: 100 }}>
+  <img src={value.Product.Picture} alt="" />
   <div class="infoContainer">{value.Product.Name}</div>
 </div>
 
 <style>
-  .itemBig {
+ .itemGalery {
     padding: 0.4em;
     flex: 1;
-    width: 25%;
-    height: 10%;
+    flex-basis: 31%;
+    max-width: 30%;
     margin: 0 0px;
-    min-height: 20em;
+    min-height: 16em;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     display: flex;
     margin: 0.4em;
     box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
@@ -50,16 +50,12 @@
     align-items: center;
     width: 50%;
   }
-  .imgContainer {
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-  }
+
   .infoContainer {
     padding: 1em;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-  .itemBig:hover {
+  .itemGalery:hover {
     box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(32, 32, 32);
   }
   div:active {

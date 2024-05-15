@@ -16,12 +16,9 @@
 <style>
     .customClassName {
         flex: 1;
-        display: grid;
-        grid-template-columns: repeat(
-            auto-fill,
-            minmax(calc(100% * (1 / 3) - 1px), 33%)
-        );
+        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        align-content: flex-start;
+        flex-grow:1;
     }
 </style>

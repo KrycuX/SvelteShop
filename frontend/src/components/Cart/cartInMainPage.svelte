@@ -18,7 +18,7 @@
 </div>
 <style>
     .customClassNameBig {
-        position: absolute;
+        position: fixed;
         display: flex;
         right: 0;
         height: 100%;

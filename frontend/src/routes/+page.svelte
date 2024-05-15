@@ -122,7 +122,7 @@
    }
   
    .flyingButton{
-        position:static;  
+        position:relative;  
         right: 0;
         top:50;
         background-color: aliceblue;

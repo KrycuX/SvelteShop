@@ -35,8 +35,7 @@
   .itemGalery {
     padding: 0.4em;
     flex: 1;
-    flex-basis: calc(30% - 10px);
-    min-width: calc(100% * (1 / 4) - 1px);
+    flex-basis: 31%;
     margin: 0 0px;
     min-height: 16em;
     justify-content: center;

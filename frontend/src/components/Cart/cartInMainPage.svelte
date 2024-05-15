@@ -15,7 +15,7 @@
         visibility = CartState.Hide;
         
         }} >
-        test
+<span>t</span>
    </div>
     <div class="itemsContainer">
         {#each items as item}
@@ -39,10 +39,18 @@
  animation: slideLeft 0.1s linear 0s 1 normal forwards;
 }
 .flyingButton{
-        position:relative;  
-        right: 0;
-        top:50;
+        position:relative;
+        right: 0;  
+        display: flex;
+        align-items: center;
+        min-width: 1rem;
         background-color: aliceblue;
+        border-top-left-radius: 60%;
+        border-bottom-left-radius: 60%;
+   }
+   .flyingButton>span{
+    position:relative;
+    rotate: -90deg;
    }
    @keyframes slideLeft{
     from{
@@ -61,7 +69,8 @@
     }
    }
     
-    .itemsContainer{
+    .itemsContainer{  
+        background-color: aliceblue;
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
 
     }

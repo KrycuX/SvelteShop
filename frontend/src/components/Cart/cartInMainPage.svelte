@@ -1,13 +1,18 @@
 <script lang="ts">
     import { CartState } from "../../enums/enums";
     import type { Position } from "../../models/position";
+    
+
     import ItemComponent from "./CartComponent/cartItem.svelte";
 
     export let items:Position[];
     export let visibility:CartState = CartState.Load;
+    export let handleDragDrop=(e):void =>{};
+    export let drop_zone:HTMLElement;
+
     </script>
 
-<div class="customClassNameBig {visibility.toString()}" >
+<div class="customClassNameBig {visibility.toString()}">
     <div class="flyingButton" on:click={()=>{
         if(visibility === CartState.Hide || visibility === CartState.Load)
         visibility = CartState.Show;
@@ -17,7 +22,10 @@
         }} >
 <span>t</span>
    </div>
-    <div class="itemsContainer">
+    <div class="itemsContainer"
+        on:drop={handleDragDrop}
+        ondragover="return false" 
+        bind:this={drop_zone}>
         {#each items as item}
             <ItemComponent value={item}  />
         {/each}
@@ -70,9 +78,13 @@
    }
     
     .itemsContainer{  
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-grow:1;
         background-color: aliceblue;
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
-
     }
 
 </style>

@@ -36,7 +36,7 @@
     flex-basis: 31%;
     max-width: 30%;
     margin: 0 0px;
-    min-height: 16em;
+    max-height: 15%;
     justify-content: center;
     align-items: center;
     flex-direction: column;

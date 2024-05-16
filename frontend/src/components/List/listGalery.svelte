@@ -5,11 +5,22 @@
 
     export let items:Product[];
     export let onClick = (item:Position) => {};
+    export let handleDragStart=(item:Product):void => {}
+    export let handleDragEnd=(item:Product):void => {}
+    export let handleTouchStart=(item:Product):void => {}
+    export let handleTouchMove=(item:Product):void => {}
+    export let handleTouchEnd=(item:Product):void => {}
 </script>
 
 <div class="customClassName">
     {#each items as item}
-        <ItemComponent value={item} {onClick} />
+        <ItemComponent 
+        handleDragStart={handleDragStart} 
+        handleDragEnd={handleDragEnd}
+        handleTouchStart={handleTouchStart}
+        handleTouchMove={handleTouchMove}
+        handleTouchEnd={handleTouchEnd}
+        value={item} {onClick} />
     {/each}
 </div>
 

@@ -4,16 +4,16 @@
     import ListGalery from "../components/List/listGalery.svelte";
     import ListSmalList from "../components/List/listSmalList.svelte";
     import { confirm } from "../components/modals/modal.js";
-    import type { Cart } from "../models/cart";
+    import { Cart } from "../models/cart";
     import CartComponent from "../components/Cart/cartInMainPage.svelte"
     import { ListType } from "../enums";
     import { Position } from "../models/position";
     import type {Product} from "../models/product";
-    import { CartState } from "../enums/enums";
+    import { CartState } from "../enums/enums";  
+
 
     export let data;
-
-    let cart : Cart;
+    let cart:Cart = new Cart();
     let product:Product =
 	{
 	Id:1,
@@ -23,7 +23,11 @@
 	Picture:"https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png"
 
 	};
+
     let position:Position[]= [new Position(1,product)]
+    cart.Positions.subscribe(items=>{position=items})
+
+    cart.AddProductToCart(new Position(1,product))
     //let allItems = data.products;
     let allItems = [product,product,product,product,product,product,product,product,product,product,product];
     let itemsFiltered = [...allItems]; // kopiowanie listy
@@ -31,7 +35,7 @@
     let toggleView = ListType.Galery;
     let sideBar_show = CartState.Load;
     let drop_zone_1:HTMLElement;
-    let droppedProduct:Product;
+    let droppedProduct:Product | undefined;
     let dropped_in:boolean;
 	let activeEvent = '';
     let originalX = '';
@@ -55,7 +59,7 @@
     }
     function handleDragEnd(e) {
     	if (dropped_in == false) {
-          droppedProduct = e;
+          /*droppedProduct = e;*/
     	}
       dropped_in = false;
     }
@@ -64,12 +68,12 @@
         console.log("drag");
     }
 
-     function handleDragDrop(e) {
+     function handleDragDrop(e:DragEvent) {
         if(droppedProduct !== undefined){
-            const toBasket:Position = new Position(1,droppedProduct)
-            position= [toBasket,...position]
-        }
+            cart.AddProductToCart(new Position(1,droppedProduct));      
 
+        }
+        droppedProduct = undefined;
     }    
     function handleTouchStart(e) {
         console.log("start")
@@ -153,7 +157,7 @@
         {/if}
     </div>
 
-    <CartComponent handleDragDrop={handleDragDrop} items= {position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show}/>	
+    <CartComponent handleDragDrop={handleDragDrop} items = { position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show}/>	
 
 </section>
 

@@ -2,14 +2,11 @@
     import { CartState } from "../../enums/enums";
     import type { Position } from "../../models/position";
     
-
     import ItemComponent from "./CartComponent/cartItem.svelte";
-
     export let items:Position[];
     export let visibility:CartState = CartState.Load;
     export let handleDragDrop=(e):void =>{};
     export let drop_zone:HTMLElement;
-
     </script>
 
 <div class="customClassNameBig {visibility.toString()}">
@@ -22,13 +19,19 @@
         }} >
 <span>t</span>
    </div>
+   <div class="wrapper">
     <div class="itemsContainer"
-        on:drop={handleDragDrop}
-        ondragover="return false" 
-        bind:this={drop_zone}>
-        {#each items as item}
-            <ItemComponent value={item}  />
-        {/each}
+    on:drop={handleDragDrop}
+    ondragover="return false" 
+    bind:this={drop_zone}>
+    {#each items as item}
+        <ItemComponent value={item}  />
+    {/each}
+    
+   </div>
+   <div class="summary">
+<p>Items count {items.length}</p>
+   </div>
     </div>
 </div>
 <style>
@@ -83,8 +86,19 @@
         flex-direction: row;
         flex-wrap: wrap;
         flex-grow:1;
+        align-content: flex-start;
+      
+        overflow: auto;
+    }
+    .summary{
+        position: sticky;
+        background-color: aliceblue;
+        bottom: 0;
+    }
+    .wrapper{
         background-color: aliceblue;
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
+        overflow: auto;
     }
 
 </style>

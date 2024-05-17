@@ -2,7 +2,7 @@ import type { Product } from "./product";
 
 export class Position 
 {
-    static _Id:number;
+    static _Id:number=0;
     public Id:number;
     public Count: number;
     public Product: Product;

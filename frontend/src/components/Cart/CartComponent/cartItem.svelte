@@ -34,7 +34,7 @@
     padding: 0.4em;
     flex: 1;
     flex-basis: 31%;
-    max-width: 30%;
+    max-width: 50%;
     margin: 0 0px;
     max-height: 15%;
     justify-content: center;

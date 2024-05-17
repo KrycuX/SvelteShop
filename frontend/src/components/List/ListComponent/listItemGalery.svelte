@@ -31,7 +31,7 @@
 <div
   draggable=true
   class="itemGalery"
-  on:dragstart={()=>handleDragStart(value)}
+  on:dragstart={(e)=>handleDragStart(value)}
   on:dragend={()=>handleDragEnd(value)}
 		on:touchstart={()=>handleTouchStart(value)}
 		on:touchmove={()=>handleTouchMove(value)}

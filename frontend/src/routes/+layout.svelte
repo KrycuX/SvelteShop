@@ -26,12 +26,10 @@
 		<Header />
 		
 	</div>
-	<div class="middle-container">
+
 		<main>
 			<slot />	
 		</main>
-	</div>
-	
 	<footer>
 		<p>Designed by Krycu</p>	
 </footer>
@@ -42,21 +40,19 @@
 	height: auto;
 	min-height: 100vh;
 	display: flex;
+	
 	flex-direction: column;	
 }
 	.navbar {
 		position: sticky;
 		top: 0;
 		height: 5vh;
+		flex-grow: 0;
+  		flex-shrink: 0;
 		box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
 		background-color: rgb(139, 179, 179);
 	}
 
-.middle-container
-{
-display: flex;
-flex-direction: row;
-}
 	main {
 		display: flex;
 		flex-direction: row;
@@ -65,6 +61,7 @@ flex-direction: row;
 		min-height: 85vh;
 		margin: 0;
 		box-sizing: border-box;
+		flex-grow: 1;
 	}
 
 	footer {
@@ -74,6 +71,8 @@ flex-direction: row;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		flex-grow: 0;
+  		flex-shrink: 0;
 		background-color: rgb(139, 179, 179);
 		align-items: center;
 		padding: 10px;
@@ -81,7 +80,7 @@ flex-direction: row;
 		font-family: "Courier New", Courier, monospace;
 		font-weight: bold;
 		letter-spacing: 0.2em;
-		height: 5vh;
+		height: 5%;
 		box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
 
 	}

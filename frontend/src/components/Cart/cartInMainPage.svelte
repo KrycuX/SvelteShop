@@ -87,7 +87,6 @@
         flex-wrap: wrap;
         flex-grow:1;
         align-content: flex-start;
-      
         overflow: auto;
     }
     .summary{

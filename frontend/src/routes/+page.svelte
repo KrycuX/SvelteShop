@@ -1,4 +1,5 @@
 <script lang="ts">
+
     import ListViewTypes from "../components/ListViewTypes/listViewTypes.svelte";
     import ListBigItems from "../components/List/listBigItems.svelte";
     import ListGalery from "../components/List/listGalery.svelte";
@@ -40,7 +41,7 @@
 	let activeEvent = '';
     let originalX = '';
     let originalY = ''
-
+   
     async function search(value: string) {
         let re = new RegExp(value, "gi");
 
@@ -157,7 +158,7 @@
         {/if}
     </div>
 
-    <CartComponent handleDragDrop={handleDragDrop} items = { position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show}/>	
+    <CartComponent handleDragDrop={handleDragDrop} items = {position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show}/>	
 
 </section>
 
@@ -209,4 +210,5 @@
         flex-flow: row wrap;
         column-gap: 5%;      
     }
+   
 </style>

@@ -31,10 +31,11 @@
 
 <style>
  .itemGalery {
-    padding: 0.4em;
+    padding: 1%;
     flex: 1;
-    flex-basis: 31%;
-    max-width: 50%;
+    flex-basis: 40%;
+    width: 40%;
+    max-width: 45%;
     margin: 0 0px;
     max-height: 15%;
     justify-content: center;

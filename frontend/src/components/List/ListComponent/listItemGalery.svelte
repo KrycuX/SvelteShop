@@ -48,8 +48,8 @@
     padding: 0.4em;
     flex: 1;
     flex-basis: 31%;
+    max-width: 30%;
     margin: 0 0px;
-    min-height: 16em;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -57,7 +57,6 @@
     margin: 0.4em;
     box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     transition: ease;
-    cursor: move;
   }
   img {
     justify-content: center;

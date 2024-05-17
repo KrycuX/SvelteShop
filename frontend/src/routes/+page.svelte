@@ -12,25 +12,17 @@
     import type {Product} from "../models/product";
     import { CartState } from "../enums/enums";  
 
-
     export let data;
     let cart:Cart = new Cart();
-    let product:Product =
-	{
-	Id:1,
-	Code: 'test',
-	Name: "testname",
-	Price: 12,
-	Picture:"https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png"
 
-	};
-
-    let position:Position[]= [new Position(1,product)]
+    let allItems:Product[] = [];
+    let position:Position[]= []
     cart.Positions.subscribe(items=>{position=items})
-
-    cart.AddProductToCart(new Position(1,product))
-    //let allItems = data.products;
-    let allItems = [product,product,product,product,product,product,product,product,product,product,product];
+    
+    for (let index = 0; index < 10; index++) {
+        allItems = [...allItems,{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png' }];         
+       
+        }
     let itemsFiltered = [...allItems]; // kopiowanie listy
     let value = "";
     let toggleView = ListType.Galery;
@@ -127,9 +119,8 @@
       	return false;
     	return true;
     }
-
 </script>
-<section>
+<section >
   
     <div class="content {sideBar_show.toString()}">
         <div class="menuBar">

@@ -23,10 +23,8 @@
 </svelte:head>
 <div class="app">
 	<div class="navbar">
-		<Header />
-		
+		<Header />	
 	</div>
-
 		<main>
 			<slot />	
 		</main>

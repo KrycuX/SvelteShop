@@ -21,7 +21,7 @@
    </div>
    <div class="wrapper">
     <div class="itemsContainer"
-    on:drop={handleDragDrop}
+    on:drop={(e)=>{e.preventDefault();handleDragDrop(e)}}
     ondragover="return false" 
     bind:this={drop_zone}>
     {#each items as item}

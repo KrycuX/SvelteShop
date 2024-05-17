@@ -3,6 +3,7 @@
     import type { Product } from "../../models/product";
     import ItemComponent from "./ListComponent/listItemGalery.svelte";
 
+
     export let items:Product[];
     export let onClick = (item:Position) => {};
     export let handleDragStart=(item:Product):void => {}
@@ -10,10 +11,12 @@
     export let handleTouchStart=(item:Product):void => {}
     export let handleTouchMove=(item:Product):void => {}
     export let handleTouchEnd=(item:Product):void => {}
+
+
 </script>
 
 <div class="customClassName">
-    {#each items as item}
+    {#each items as item(item)}
         <ItemComponent 
         handleDragStart={handleDragStart} 
         handleDragEnd={handleDragEnd}

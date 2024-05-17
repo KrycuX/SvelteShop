@@ -1,5 +1,6 @@
-<script>
-    export let value;
+<script lang="ts">
+    import { ListType } from "../../enums/enums";
+    export let value:ListType;
     let class0 = "active";
     let class1 = "";
     let class2 = "";
@@ -10,7 +11,7 @@
         <li class={class0}>
             <button
                 on:click={() => {
-                    value = 1;
+                    value = ListType.Galery;
                     class0 = "active";
                     class1 = "";
                     class2 = "";
@@ -22,7 +23,7 @@
         <li class={class1}>
             <button
                 on:click={() => {
-                    value = 2;
+                    value = ListType.SmallList;
                     class0 = "";
                     class1 = "active";
                     class2 = "";
@@ -34,7 +35,7 @@
         <li class={class2}>
             <button
                 on:click={() => {
-                    value = 3;
+                    value = ListType.BigItemList;
                     class0 = "";
                     class1 = "";
                     class2 = "active";

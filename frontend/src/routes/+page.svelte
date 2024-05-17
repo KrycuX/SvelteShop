@@ -18,7 +18,7 @@
     let allItems:Product[] = [];
     let position:Position[]= []
     cart.Positions.subscribe(items=>{position=items})
-    
+
     for (let index = 0; index < 10; index++) {
         allItems = [...allItems,{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png' }];         
        
@@ -120,8 +120,7 @@
     	return true;
     }
 </script>
-<section >
-  
+<section > 
     <div class="content {sideBar_show.toString()}">
         <div class="menuBar">
             <input
@@ -132,29 +131,19 @@
             on:input={() => search(value)}
         />
         <ListViewTypes bind:value={toggleView} />
-        </div>
-  
-        <!-- else if content here -->
-        {#if toggleView == ListType.Galery}
+        </div> 
             <ListGalery handleDragStart={handleDragStart} 
             handleDragEnd={handleDragEnd}
             handleTouchStart={handleTouchStart}
             handleTouchMove={handleTouchMove}
             handleTouchEnd={handleTouchEnd}
-            items={itemsFiltered} onClick={addToBasket} />
-        {:else if toggleView == ListType.SmallList}
-            <ListSmalList items={itemsFiltered} onClick={addToBasket} />
-        {:else if toggleView == ListType.BigItemList}
-            <ListBigItems items={itemsFiltered} onClick={addToBasket} />
-        {/if}
+            items={itemsFiltered} onClick={addToBasket} 
+            viewType={toggleView}
+            />     
     </div>
-
     <CartComponent handleDragDrop={handleDragDrop} items = {position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show}/>	
-
 </section>
-
 <style>
-
    section{   
     display: flex;
    }

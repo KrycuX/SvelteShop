@@ -1,7 +1,7 @@
 export enum ListType{
-    Galery = 1,
-    SmallList =2,
-    BigItemList =3
+    Galery = "Galery",
+    SmallList ="SmallList",
+    BigItemList ="BigItemList"
 }
 export enum CartState{
     Load = 'Load',

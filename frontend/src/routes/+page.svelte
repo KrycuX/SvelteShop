@@ -1,9 +1,7 @@
 <script lang="ts">
 
     import ListViewTypes from "../components/ListViewTypes/listViewTypes.svelte";
-    import ListBigItems from "../components/List/listBigItems.svelte";
     import ListGalery from "../components/List/listGalery.svelte";
-    import ListSmalList from "../components/List/listSmalList.svelte";
     import { confirm } from "../components/modals/modal.js";
     import { Cart } from "../models/cart";
     import CartComponent from "../components/Cart/cartInMainPage.svelte"
@@ -14,14 +12,12 @@
 
     export let data;
     let cart:Cart = new Cart();
-
     let allItems:Product[] = [];
     let position:Position[]= []
     cart.Positions.subscribe(items=>{position=items})
 
     for (let index = 0; index < 10; index++) {
-        allItems = [...allItems,{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png' }];         
-       
+        allItems = [...allItems,{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png' }];            
         }
     let itemsFiltered = [...allItems]; // kopiowanie listy
     let value = "";

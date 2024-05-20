@@ -25,9 +25,6 @@ const productData = async ():Promise<Product[]>  =>
     }
     else
         items = temp;
-    
-
     return items
-
     }
       

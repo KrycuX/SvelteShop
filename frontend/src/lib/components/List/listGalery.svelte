@@ -1,12 +1,10 @@
 <script lang="ts">
-    import type { Position } from "../../models/position";
-    import type { Product } from "../../models/product";
+    import type { Product } from "$lib/types/types";
     import ItemComponent from "./ListComponent/ListItemGalery.svelte";
     import type { ListType } from "../../enums";
 
     export let items:Product[];
     export let viewType:ListType;
-    export let onClick = (item:Position) => {};
     export let handleDragStart=(item:Product):void => {}
     export let handleDragEnd=(item:Product):void => {}
     export let handleTouchStart=(item:Product):void => {}
@@ -23,7 +21,7 @@
         handleTouchStart={handleTouchStart}
         handleTouchMove={handleTouchMove}
         handleTouchEnd={handleTouchEnd}
-        value={item} {onClick}
+        value={item} 
         viewType={viewType} />
     {/each}
 </div>

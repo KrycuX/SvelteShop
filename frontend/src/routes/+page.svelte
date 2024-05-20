@@ -1,29 +1,22 @@
 <script lang="ts">
-
+    import type {Product} from "$lib/types/types";
+    import type { PageData } from "./$types";
+    
     import ListViewTypes from "$lib/components/ListViewTypes/ListViewTypes.svelte";
     import ListGalery from "$lib/components/List/ListGalery.svelte";
+    import CartComponent from "$lib/components/Cart/CartInMainPage.svelte"
+
     import { confirm } from "$lib/components/modals/modal.js";
     import { Cart } from "$lib/models/cart";
-    import CartComponent from "$lib/components/Cart/CartInMainPage.svelte"
     import { ListType } from "$lib/enums";
     import { Position } from "$lib/models/position";
-    import type {Product} from "$lib/types/types";
     import { CartState } from "$lib/enums/enums";  
-    import type { PageData } from "./$types";
 
     export let data:PageData;
+
     let cart:Cart = new Cart();
-    
-    let allItems:Product[] = [];
     let position:Position[]= []
-    cart.Positions.subscribe(items=>{position=items})
-
-    for (let index = 0; index < 10; index++) {
-        allItems = [...allItems,{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png' }];            
-        }
-
-    let itemsFiltered = [...allItems]; // kopiowanie listy
-    let value = "";
+    let searchValue: string;
     let toggleView = ListType.Galery;
     let sideBar_show = CartState.Load;
     let drop_zone_1:HTMLElement;
@@ -33,23 +26,15 @@
     let originalX = '';
     let originalY = ''
 
-    async function search(value: string) {
-        let re = new RegExp(value, "gi");
+    cart.Positions.subscribe(items=>{position=items})
 
-        itemsFiltered = allItems?.filter((item) =>
-            item.Name.match(re)
-        );
-    }
+    $: itemsFiltered = data.products.items.filter(item =>
+    {   if(searchValue === undefined || searchValue === '')
+                return true;
 
-    async function addToBasket(itemForBasket:Position) {
-        const confirmed = await confirm({
-            title: "Confirmation",
-            message: "You sure?",
-        });
-        if (confirmed) {
-            cart.AddProductToCart(itemForBasket);
-        }
-    }
+        let itemName = item.Name.toLowerCase()
+        return itemName.includes(searchValue.toLowerCase())
+    });
 
     function handleDragEnd(e) {
     	if (dropped_in == false) {
@@ -60,7 +45,6 @@
 
     function handleDragStart(item:Product){
         droppedProduct = item;
-        console.log("drag");
     }
 
      function handleDragDrop(e:DragEvent) {
@@ -130,18 +114,17 @@
             class="searchBar"
             type="text"
             placeholder="Search for items..."
-            bind:value
-            on:input={() => search(value)}
+            bind:value={searchValue}
+            on:input
         />
         <ListViewTypes bind:value={toggleView} />
         </div> 
-        {data.products.items}
             <ListGalery handleDragStart={handleDragStart} 
             handleDragEnd={handleDragEnd}
             handleTouchStart={handleTouchStart}
             handleTouchMove={handleTouchMove}
             handleTouchEnd={handleTouchEnd}
-            items={data.products.items} onClick={addToBasket} 
+            items={itemsFiltered} 
             viewType={toggleView}
             />     
     </div>

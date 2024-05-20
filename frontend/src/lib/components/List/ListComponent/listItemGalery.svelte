@@ -6,7 +6,6 @@
   import {fadeSlide} from "../../../../actions/fadeSlide"
   export let value:Product;
   export let viewType:ListType;
-  export let onClick = (item:Position) => {};
   export let handleDragStart=(item:Product):void => {}
   export let handleDragEnd=(item:Product):void => {}
   export let handleTouchStart=(item:Product):void => {}
@@ -54,7 +53,6 @@
 		on:touchmove={()=>handleTouchMove(value)}
 		on:touchend={()=>handleTouchEnd(value)}
   transition:fadeSlide={{ duration: 100 }}
-  on:input={() => onClick(new Position(1,value))}
 >
 <div class="infoContainer">{value.Id}</div>
   <img  draggable='false' src={value.Picture} alt="" />

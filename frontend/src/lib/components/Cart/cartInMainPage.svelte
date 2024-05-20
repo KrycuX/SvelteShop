@@ -31,7 +31,7 @@
     
    </div>
    <div class="summary">
-    <p>Items count {$items.length}</p>
+    <p>Items count {items.length}</p>
    </div>
     </div>
 </div>

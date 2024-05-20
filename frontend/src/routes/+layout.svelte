@@ -1,20 +1,6 @@
 <script lang="ts">
 	import Header from "$lib/components/Navbar/Navbar.svelte";
 	import "$lib/assets/styles/style.css";
-    import { Position } from "$lib/models/position";
-	import type { Product } from "$lib/types/types";
-
-	let product:Product =
-	{
-	Id:1,
-	Code: 'test',
-	Name: "testname",
-	Price: 12,
-	Picture:"https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png"
-
-	};
-	let position:Position[]= [new Position(1,product)]
-
 </script>
 
 <svelte:head>

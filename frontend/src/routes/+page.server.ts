@@ -31,6 +31,3 @@ const productData = async ():Promise<Product[]>  =>
 
     }
       
-
-
-

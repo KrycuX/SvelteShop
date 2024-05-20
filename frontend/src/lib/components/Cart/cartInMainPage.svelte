@@ -7,7 +7,7 @@
     export let visibility:CartState = CartState.Load;
     export let handleDragDrop=(e):void =>{};
     export let drop_zone:HTMLElement;
-    $: pages = items.length;
+
     </script>
 
 <div class="customClassNameBig {visibility.toString()}">
@@ -31,8 +31,7 @@
     
    </div>
    <div class="summary">
-<p>Items count {items.length}</p>
-<p>Items count2 {pages}</p>
+    <p>Items count {$items.length}</p>
    </div>
     </div>
 </div>

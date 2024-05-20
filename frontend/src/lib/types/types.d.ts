@@ -6,5 +6,3 @@ export interface Product
     Price:number;
     Picture:string
 }
-
-

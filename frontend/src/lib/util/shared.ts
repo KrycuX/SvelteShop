@@ -7,15 +7,13 @@ export const getProducts = async(): Promise<Product[] | undefined> => {
                 products:Product[]
             }
         }
-
         const {data}:JSONResponse= await fetch('http://localhost:9000/store/products')
-                .then<JSONResponse>(response=>response.json());
-       
+                .then<JSONResponse>(response=>response.json());      
         const products= data?.products;
         return products;
         
     } catch (error) {
         console.log("Error:" + error);
-        return [];
+        return undefined;
     }
 }

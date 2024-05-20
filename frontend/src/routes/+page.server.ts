@@ -1,22 +1,36 @@
-import type { Product } from "../models/product.ts";
-import { getProducts } from "../util/shared.js";
+import type { Product } from "$lib/types/types";
+import { getProducts } from "$lib/util/shared.js";
+import type { PageServerLoad } from "./$types.js";
 
-let items:Product[];
-export const load = async function(){
-    productData();
+export const load:PageServerLoad = async(event) =>
+{
+   const items = await productData();
     return{     
-        products: items
+        products: 
+        {
+            items
+        }
     }
 }
 
-const productData = async () => {
+const productData = async ():Promise<Product[]>  => 
+    {
     const temp = await getProducts();
+    let items:Product[] = [];
+    console.log(temp);
     if(temp === undefined)
-        for (let index = 0; index < 10; index++) {
-            items = [{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'' },...items];         
-       
-        }
+    {
+        for (let index = 0; index < 10; index++)       
+            items = [{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png'  },...items];                  
+    }
     else
         items = temp;
-}
-$: productData();
+    
+
+    return items
+
+    }
+      
+
+
+

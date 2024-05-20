@@ -1,17 +1,19 @@
 <script lang="ts">
 
-    import ListViewTypes from "../components/ListViewTypes/listViewTypes.svelte";
-    import ListGalery from "../components/List/listGalery.svelte";
-    import { confirm } from "../components/modals/modal.js";
-    import { Cart } from "../models/cart";
-    import CartComponent from "../components/Cart/cartInMainPage.svelte"
-    import { ListType } from "../enums";
-    import { Position } from "../models/position";
-    import type {Product} from "../models/product";
-    import { CartState } from "../enums/enums";  
+    import ListViewTypes from "$lib/components/ListViewTypes/listViewTypes.svelte";
+    import ListGalery from "$lib/components/List/listGalery.svelte";
+    import { confirm } from "$lib/components/modals/modal.js";
+    import { Cart } from "$lib/models/cart";
+    import CartComponent from "$lib/components/Cart/cartInMainPage.svelte"
+    import { ListType } from "$lib/enums";
+    import { Position } from "$lib/models/position";
+    import type {Product} from "$lib/types/types";
+    import { CartState } from "$lib/enums/enums";  
+    import type { PageData } from "./$types";
 
-    export let data;
+    export let data:PageData;
     let cart:Cart = new Cart();
+    
     let allItems:Product[] = [];
     let position:Position[]= []
     cart.Positions.subscribe(items=>{position=items})
@@ -19,6 +21,7 @@
     for (let index = 0; index < 10; index++) {
         allItems = [...allItems,{Id:index, Name:'product'+index, Code:'product'+index,Price:12,Picture:'https://candyweb.pl/wp-content/uploads/2020/02/google-grafika.png' }];            
         }
+
     let itemsFiltered = [...allItems]; // kopiowanie listy
     let value = "";
     let toggleView = ListType.Galery;
@@ -29,7 +32,7 @@
 	let activeEvent = '';
     let originalX = '';
     let originalY = ''
-   
+
     async function search(value: string) {
         let re = new RegExp(value, "gi");
 
@@ -37,6 +40,7 @@
             item.Name.match(re)
         );
     }
+
     async function addToBasket(itemForBasket:Position) {
         const confirmed = await confirm({
             title: "Confirmation",
@@ -46,12 +50,14 @@
             cart.AddProductToCart(itemForBasket);
         }
     }
+
     function handleDragEnd(e) {
     	if (dropped_in == false) {
           /*droppedProduct = e;*/
     	}
       dropped_in = false;
     }
+
     function handleDragStart(item:Product){
         droppedProduct = item;
         console.log("drag");
@@ -63,9 +69,10 @@
 
         }
         droppedProduct = undefined;
+    
     }    
     function handleTouchStart(e) {
-        console.log("start")
+    console.log("start")
       originalX = (e.target.offsetLeft - 10) + "px";
       originalY = (e.target.offsetTop - 10) + "px";
       activeEvent = 'start';
@@ -128,12 +135,13 @@
         />
         <ListViewTypes bind:value={toggleView} />
         </div> 
+        {data.products.items}
             <ListGalery handleDragStart={handleDragStart} 
             handleDragEnd={handleDragEnd}
             handleTouchStart={handleTouchStart}
             handleTouchMove={handleTouchMove}
             handleTouchEnd={handleTouchEnd}
-            items={itemsFiltered} onClick={addToBasket} 
+            items={data.products.items} onClick={addToBasket} 
             viewType={toggleView}
             />     
     </div>

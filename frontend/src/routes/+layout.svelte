@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Header from "../components/Navbar/navbar.svelte";
+	import Header from "$lib/components/Navbar/navbar.svelte";
+	import "$lib/assets/styles/style.css";
+    import { Position } from "$lib/models/position";
+	import type { Product } from "$lib/types/types";
 
-	import "../assets/styles/style.css";
-    import { Position } from "../models/position";
-	import type { Product } from "../models/product";
 	let product:Product =
 	{
 	Id:1,

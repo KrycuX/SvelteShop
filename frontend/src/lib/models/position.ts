@@ -1,4 +1,5 @@
-import type { Product } from "./product";
+import type { Product } from "$lib/types/types";
+
 
 export class Position 
 {

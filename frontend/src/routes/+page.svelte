@@ -1,10 +1,10 @@
 <script lang="ts">
 
-    import ListViewTypes from "$lib/components/ListViewTypes/listViewTypes.svelte";
-    import ListGalery from "$lib/components/List/listGalery.svelte";
+    import ListViewTypes from "$lib/components/ListViewTypes/ListViewTypes.svelte";
+    import ListGalery from "$lib/components/List/ListGalery.svelte";
     import { confirm } from "$lib/components/modals/modal.js";
     import { Cart } from "$lib/models/cart";
-    import CartComponent from "$lib/components/Cart/cartInMainPage.svelte"
+    import CartComponent from "$lib/components/Cart/CartInMainPage.svelte"
     import { ListType } from "$lib/enums";
     import { Position } from "$lib/models/position";
     import type {Product} from "$lib/types/types";

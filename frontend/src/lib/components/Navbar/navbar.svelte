@@ -19,7 +19,7 @@
                 <a
                     href="http://www.youtube.com"
                     target="_blank"
-                    rel="noopener noreferrer">Koszyk <img src="/src/assets/icons/koszyk.jpg" alt="" /></a
+                    rel="noopener noreferrer">Koszyk <img src="/src/lib/assets/icons/koszyk.jpg" alt="" /></a
                 >
                
             </li>

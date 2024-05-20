@@ -1,9 +1,9 @@
 <script lang="ts">
   import { slide, type SlideParams } from "svelte/transition";
-  import { Position } from "../../../models/position";
-  import type { Product } from "../../../models/product";
-  import type { ListType } from "../../../enums/enums";
-
+  import { Position } from "$lib/models/position";
+  import type { Product } from "$lib/types/types";
+  import type { ListType } from "$lib/enums/enums";
+  import {fadeSlide} from "../../../../actions/fadeSlide"
   export let value:Product;
   export let viewType:ListType;
   export let onClick = (item:Position) => {};
@@ -32,20 +32,6 @@
   function clearDragImage(){
     const dragImages = document.querySelectorAll('.drag-image');
     dragImages.forEach(dragImage => dragImage.remove());
-  }
-  function fadeSlide(node:Element, options:SlideParams) {
-    const slideTrans = slide(node, options);
-    return {
-      duration: options.duration,
-      // @ts-ignore
-      css: (t) => `
-				${
-          // @ts-ignore
-          slideTrans.css(t)
-        }
-				opacity: ${t};
-			`,
-    };
   }
 </script>
 

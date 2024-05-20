@@ -1,12 +1,13 @@
 <script lang="ts">
-    import { CartState } from "../../enums/enums";
-    import type { Position } from "../../models/position";
-    
-    import ItemComponent from "./CartComponent/cartItem.svelte";
+    import { CartState } from "$lib/enums/enums";
+    import type { Position } from "$lib/models/position";
+    import ItemComponent from "./CartComponent/CartItem.svelte";
+
     export let items:Position[];
     export let visibility:CartState = CartState.Load;
     export let handleDragDrop=(e):void =>{};
     export let drop_zone:HTMLElement;
+    $: pages = items.length;
     </script>
 
 <div class="customClassNameBig {visibility.toString()}">
@@ -31,6 +32,7 @@
    </div>
    <div class="summary">
 <p>Items count {items.length}</p>
+<p>Items count2 {pages}</p>
    </div>
     </div>
 </div>

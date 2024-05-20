@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from "$lib/components/Navbar/navbar.svelte";
+	import Header from "$lib/components/Navbar/Navbar.svelte";
 	import "$lib/assets/styles/style.css";
     import { Position } from "$lib/models/position";
 	import type { Product } from "$lib/types/types";

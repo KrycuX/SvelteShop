@@ -100,7 +100,7 @@
     padding: 1em;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
-  .itemGalery:hover
+  .item:hover
    {
     box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(32, 32, 32);
   }

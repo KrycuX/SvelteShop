@@ -5,7 +5,7 @@
     import ListViewTypes from "$lib/components/ListViewTypes/ListViewTypes.svelte";
     import ListGalery from "$lib/components/List/ListGalery.svelte";
     import CartComponent from "$lib/components/Cart/CartInMainPage.svelte"
-
+    import SearchBar from "$lib/components/SearchBar/Searchbar.svelte"
     import { confirm } from "$lib/components/modals/modal.js";
     import { Cart } from "$lib/models/cart";
     import { ListType } from "$lib/enums";
@@ -110,14 +110,8 @@
 <section > 
     <div class="content {sideBar_show.toString()}">
         <div class="menuBar">
-            <input
-            class="searchBar"
-            type="text"
-            placeholder="Search for items..."
-            bind:value={searchValue}
-            on:input
-        />
-        <ListViewTypes bind:value={toggleView} />
+            <SearchBar searchValue = {searchValue} products={data.products.items}/>
+            <ListViewTypes bind:value={toggleView} />
         </div> 
             <ListGalery handleDragStart={handleDragStart} 
             handleDragEnd={handleDragEnd}
@@ -165,12 +159,6 @@
     }
    }
   
-    .searchBar {
-        min-height: 2em;
-        font-size: 1.2rem;
-        width: 75%;
-        border-radius: 0.5em;
-    }
     .menuBar{  
         width: 100%; 
         display:inline-flex;

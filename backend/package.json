@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "create-medusa-app": "^1.2.8"
+  }
+}

@@ -1,5 +1,5 @@
 import type { Product } from "$lib/types/types";
-import { getProducts } from "$lib/util/shared.js";
+import { getProducts,getProductsTest } from "$lib/util/shared.js";
 import type { PageServerLoad } from "./$types.js";
 
 export const load:PageServerLoad = async(event) =>

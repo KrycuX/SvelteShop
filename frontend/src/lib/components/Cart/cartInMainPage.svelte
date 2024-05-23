@@ -20,7 +20,7 @@
         }} >
 <span>t</span>
    </div>
-   <div class="wrapper">
+   <div class="wrapper ">
     <div class="itemsContainer"
     on:drop={(e)=>{e.preventDefault();handleDragDrop(e)}}
     ondragover="return false" 
@@ -37,14 +37,17 @@
 </div>
 <style>
     .customClassNameBig {
-        position: fixed;
+        position: relative;
         display: flex;
         right: 0;
         margin-top: 1%;
         height: 85%;
-        width:1%;
+        width: auto;
+        max-width: 20%;
 
-   }.customClassNameBig.Hide { 
+   }
+   
+   .customClassNameBig.Hide { 
     animation: slideRight 0.1s linear 0s 1 normal forwards;
 }
    .customClassNameBig.Show { 
@@ -64,6 +67,7 @@
     position:relative;
     rotate: -90deg;
    }
+
    @keyframes slideLeft{
     from{
     width:1%;

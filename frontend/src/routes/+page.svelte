@@ -134,12 +134,12 @@
     padding: 1rem;
 
    }  
-   .content.Hide{
+ /*  .content.Hide{
     animation: slideRight 0.1s linear 0s 1 normal forwards;
    }
    .content.Show{
    animation: slideLeft 0.1s linear 0s 1 normal forwards;
-   }
+   }*/
     @keyframes slideRight{ 
     from
     {

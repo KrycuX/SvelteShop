@@ -40,7 +40,6 @@
 	main {
 		display: flex;
 		flex-direction: row;
-		padding: 1rem;
 		width: 100%;
 		min-height: 85vh;
 		margin: 0;

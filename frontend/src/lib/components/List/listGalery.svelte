@@ -27,15 +27,20 @@
 </div>
 
 <style>
-    .list.Galery {
+    .list{
         flex: 1;
+        margin-top: 0.4em;
+    }
+    .list.Galery {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         flex-grow:1;
+        column-gap: 1em;
+        row-gap: 1em;
+
     }
     .list.SmallList{
-        flex: 1;
         display: grid;
         min-width: 100%;
         height: 50%;
@@ -43,7 +48,6 @@
         align-content: flex-start;
     }
     .list.BigItemList{
-        flex: 1;
         display: block;
         justify-content: center;
         align-items: center;

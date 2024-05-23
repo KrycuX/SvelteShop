@@ -39,9 +39,9 @@
     .customClassNameBig {
         position: fixed;
         display: flex;
-        margin-bottom: 2rem;
         right: 0;
-        height: 85vh;
+        margin-top: 1%;
+        height: 85%;
         width:1%;
 
    }.customClassNameBig.Hide { 
@@ -83,6 +83,7 @@
     
     .itemsContainer{  
         width: 100%;
+        height: 93%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -96,6 +97,8 @@
         bottom: 0;
     }
     .wrapper{
+        width: 100%;
+        height: 100%;
         background-color: aliceblue;
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
         overflow: auto;

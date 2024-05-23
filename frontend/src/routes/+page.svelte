@@ -131,6 +131,7 @@
 
    .content{   
     width: 100%; 
+    padding: 1rem;
 
    }  
    .content.Hide{
@@ -149,7 +150,6 @@
     padding-right:0%;
     }
    } 
-
    @keyframes slideLeft{
     from{
     padding-right:0%;

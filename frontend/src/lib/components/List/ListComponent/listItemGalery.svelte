@@ -65,7 +65,6 @@
   margin: 0 0px;
   box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
   transition: ease;
-  margin: 0.4em;
 }
   .item.Galery {
     flex-basis: 31%;

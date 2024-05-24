@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { slide, type SlideParams } from "svelte/transition";
-  import { Position } from "$lib/models/position";
   import type { Product } from "$lib/types/types";
   import type { ListType } from "$lib/enums/enums";
   import {fadeSlide} from "../../../../actions/fadeSlide"

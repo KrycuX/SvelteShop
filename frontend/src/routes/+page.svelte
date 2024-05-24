@@ -6,7 +6,7 @@
     import ListGalery from "$lib/components/List/ListGalery.svelte";
     import CartComponent from "$lib/components/Cart/CartInMainPage.svelte"
     import SearchBar from "$lib/components/SearchBar/Searchbar.svelte"
-    import { confirm } from "$lib/components/modals/modal.js";
+    import { onMount } from 'svelte';
     import { Cart } from "$lib/models/cart";
     import { ListType } from "$lib/enums";
     import { Position } from "$lib/models/position";
@@ -34,8 +34,19 @@
 
         let itemName = item.Name.toLowerCase()
         return itemName.includes(searchValue.toLowerCase())
+    }); 
+    let searchbarVisible = true;
+    const handleScroll = () => {
+        const searchbar = document.getElementById("menuBar");
+        const searchbarHeight = searchbar ? searchbar.offsetTop : 0;
+    searchbarVisible = window.scrollY <= searchbarHeight ;
+    };
+    onMount(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     });
-
     function handleDragEnd(e) {
     	if (dropped_in == false) {
           /*droppedProduct = e;*/
@@ -109,7 +120,7 @@
 </script>
 <section > 
     <div class="content {sideBar_show.toString()}">
-        <div class="menuBar">
+        <div id = "menuBar" class="menuBar {searchbarVisible?'':'scrolled'}">
             <SearchBar searchValue = {searchValue} products={data.products.items}/>
             <ListViewTypes bind:value={toggleView} />
         </div> 
@@ -134,18 +145,18 @@
     padding: 1rem;
 
    }  
- /*  .content.Hide{
+ .content.Hide{
     animation: slideRight 0.1s linear 0s 1 normal forwards;
    }
    .content.Show{
    animation: slideLeft 0.1s linear 0s 1 normal forwards;
-   }*/
+   }
     @keyframes slideRight{ 
     from
     {
         padding-right:20%;
     }
-    To
+    to
     {       
     padding-right:0%;
     }
@@ -154,7 +165,7 @@
     from{
     padding-right:0%;
     }
-    To{
+    to{
     padding-right:20%;
     }
    }
@@ -163,7 +174,37 @@
         width: 100%; 
         display:inline-flex;
         flex-flow: row wrap;
-        column-gap: 5%;      
+        column-gap: 5%; 
+        animation: SearchReverte 0.3s ease-in 0s 1 normal forwards;     
     }
-   
+    .menuBar.scrolled{
+        margin-top:0.1%;
+        position: fixed;
+        top:0;
+        width: 75%; 
+        animation: SearchScrolled 0.3s linear 0s 1 normal forwards;    
+    }
+
+    @keyframes SearchScrolled{ 
+    from
+
+    {   top:1;
+        width:100%;
+    }
+    to
+    {   top:0;    
+        width:75%;
+    }
+   } 
+
+   @keyframes SearchReverte{
+    from{
+        top:0;
+        width:75%;
+    }
+    to{
+        top:1;
+        width:100%;
+    }
+   }
 </style>

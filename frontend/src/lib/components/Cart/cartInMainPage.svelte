@@ -37,12 +37,12 @@
 </div>
 <style>
     .customClassNameBig {
-        position: relative;
+        position: fixed;
         display: flex;
         right: 0;
         margin-top: 1%;
         height: 85%;
-        width: auto;
+        width: 1%;
         max-width: 20%;
 
    }

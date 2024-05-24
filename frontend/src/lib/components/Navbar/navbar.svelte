@@ -29,37 +29,35 @@
 
 <style>
     nav {
+        height: 5vh;
         position: sticky;
+        display: flex;
         top: 0;
         margin-top: 0em;
-        display: flex;
         justify-content: right;
-        --background: var(--navbar-color);
+		flex-grow: 0;
+  		flex-shrink: 0;
+		box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
+		background-color: rgb(139, 179, 179);
     }
-    svg {
-        width: 2em;
-        display: block;
-    }
-    path {
-        fill: black;
-    }
+
     ul {
-        padding: 0;
+        padding: auto;
         margin: 0;
+        height: 100%;
         display: inline-block;
         align-items: center;
         list-style-type: none;
         overflow: hidden;
-        padding-bottom: 0.1rem;
     }
     li {
         justify-content: center;
         align-items: center;
         display: inline-block;
-        height: 100%;
+        height: 90%;
+         margin-top: 0.6%;
     }
     nav a {
-        min-height: 100%;
         display: inline-flex;
         height: 100%;
         align-items: center;

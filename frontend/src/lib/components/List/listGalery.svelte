@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Product } from "$lib/types/types";
-    import ItemComponent from "./ListComponent/listItemGalery.svelte";
-    import type { ListType } from "../../enums";
+    import ItemComponent from "$lib/components/List/ListComponent/ListItemGalery.svelte";
+    import type { ListType } from "$lib/enums/enums";
 
     export let items:Product[];
     export let viewType:ListType;

@@ -9,8 +9,9 @@
 </svelte:head>
 <div class="app">
 	<div class="navbar">
-		<Header />	
+		<Header />
 	</div>
+			
 		<main>
 			<slot />	
 		</main>
@@ -20,11 +21,11 @@
 	
 </div>
 
-<style>	.app {
+<style>	
+.app {
 	height: auto;
 	min-height: 100vh;
 	display: flex;
-	
 	flex-direction: column;	
 }
 	.navbar {

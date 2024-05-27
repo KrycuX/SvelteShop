@@ -8,8 +8,7 @@ let focused:boolean = false;
 
 function onClick(inputValue:string)
 {
-    console.log(inputValue);
-if(inputValue !== undefined)
+    if(inputValue !== undefined)
     searchValue = inputValue
 
 }

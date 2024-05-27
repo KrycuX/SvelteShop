@@ -1,7 +1,7 @@
 <script lang="ts">
     import { CartState } from "$lib/enums/enums";
     import type { Position } from "$lib/models/position";
-    import ItemComponent from "./CartComponent/CartItem.svelte";
+    import ItemComponent from "$lib/components/Cart/CartComponent/CartItem.svelte";
 
     export let items:Position[];
     export let visibility:CartState = CartState.Load;

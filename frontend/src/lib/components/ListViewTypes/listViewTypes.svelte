@@ -1,70 +1,44 @@
 <script lang="ts">
-    import { ListType } from "../../enums/enums";
+    import { ListType } from "$lib/enums/enums";
     export let value:ListType;
+
     let class0 = "active";
     let class1 = "";
     let class2 = "";
-</script>
 
-<div>
-    <ul>
-        <li class={class0}>
-            <button
-                on:click={() => {
-                    value = ListType.Galery;
-                    class0 = "active";
-                    class1 = "";
-                    class2 = "";
-                }}
-            >
-                1
-            </button>
-        </li>
-        <li class={class1}>
-            <button
-                on:click={() => {
-                    value = ListType.SmallList;
-                    class0 = "";
-                    class1 = "active";
-                    class2 = "";
-                }}
-            >
-                2
-            </button>
-        </li>
-        <li class={class2}>
-            <button
-                on:click={() => {
-                    value = ListType.BigItemList;
-                    class0 = "";
-                    class1 = "";
-                    class2 = "active";
-                }}
-            >
-                3
-            </button>
-        </li>
-    </ul>
+</script>
+<div class="list">
+        <div 
+        tabindex="0"
+        role="button"
+        class="listItem {value === ListType.Galery? 'hover': ''}"
+        on:click={() => { value = ListType.Galery;}}
+        on:keydown={()=>{}}> 1 </div>
+        <div 
+        tabindex="0"
+        role="button"
+        class="listItem {value === ListType.SmallList? 'hover': ''}"
+        on:click={() => { value = ListType.SmallList; }}
+        on:keydown={()=>{}}> 2 </div>
+        <div 
+        tabindex="0"
+        role="button"
+        class="listItem {value === ListType.BigItemList? 'hover': ''}"
+        on:click={() => {value = ListType.BigItemList;}}
+        on:keydown={()=>{}}> 3 </div>
 </div>
 
 <style>
  
-    ul {
-        padding: 0;
+ .list {
         margin: 0;
         display: inline-block;
         align-items: center;
-        list-style-type: none;
         overflow: hidden;
         padding: 0.1rem;
-        height: 100%;
     }
-    li {
+    .listItem {
         align-items: center;
-        display: inline-block;
-        height: 100%;
-    }
-    ul button {
         display: inline-flex;
         height: 100%;
         align-items: center;
@@ -83,8 +57,8 @@
     div:focus {
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     }
-    .active,
-    li:hover {
+    .listItem.hover,
+    .listItem:hover {
         box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     }
 </style>

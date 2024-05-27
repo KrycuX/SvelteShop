@@ -33,6 +33,8 @@
 </script>
 
 <div
+  tabindex="0"
+  role="button"
   draggable='true'
   class="item {viewType}"
   bind:this={element}

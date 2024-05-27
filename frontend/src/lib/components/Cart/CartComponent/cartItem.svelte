@@ -1,10 +1,9 @@
 <script lang="ts">
   import type { Position } from "$lib/models/position";
   import {fadeSlide} from "../../../../actions/fadeSlide"
-
+  
   export let value : Position;
- 
- 
+
 </script>
 
 <div

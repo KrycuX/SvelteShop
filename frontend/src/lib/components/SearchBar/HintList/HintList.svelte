@@ -2,7 +2,7 @@
 import type { Product } from '$lib/types/types';
 import { slide } from 'svelte/transition';
 import { quintOut,quintIn } from 'svelte/easing';
-export let onClick=async (inputValue:string):Promise<undefined> =>{};
+export let onClick=(inputValue:string):void =>{};
 export let searchValue:string;
 export let products:Product[];
 $: filtered = products.filter(item =>
@@ -13,30 +13,32 @@ $: filtered = products.filter(item =>
             })
 </script>
 
-<ul class="list" 
+<div class="list" 
 in:slide={{ delay: 20, duration: 300, easing: quintOut, axis: 'y' }} 
 out:slide={{delay: 20, duration: 300, easing: quintIn, axis: 'y'}}>
-
     {#if filtered !== undefined && filtered.length > 0}
         {#each filtered as product}
-
-        <li 
+        <div class="item"
+        tabindex="0"
+        role="button"
         in:slide={{ delay: 20, duration: 300, easing: quintOut, axis: 'y' }}
         out:slide={{delay: 0, duration: 100, easing: quintIn, axis: 'y'}}
         on:click={()=>{onClick(product.Name)}}
-         >{product.Name}</li>
+        on:keydown={(e)=>{}}
+        >
+        {product.Name}</div>
         {/each}
         {:else}
-        <li 
+        <div lass="item"
         in:slide={{ delay: 20, duration: 300, easing: quintOut, axis: 'y' }}
         out:slide={{delay: 0, duration: 100, easing: quintIn, axis: 'y'}}>
-        Brak produktów</li>
+        Brak produktów</div>
     {/if}
 
-</ul>
+</div>
 
 <style>
-li{
+.item{
     padding: 0.5%;
 }
     .list{
@@ -52,7 +54,7 @@ li{
         list-style-type: none;
         border-radius: 0 0 10px 10px;
     }
-    li:hover{
+    .item:hover{
         background-color: lightgray;
     }
 </style>

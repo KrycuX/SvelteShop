@@ -8,27 +8,42 @@
     export let handleDragDrop=(e):void =>{};
     export let drop_zone:HTMLElement;
 
-    </script>
-
-<div class="customClassNameBig {visibility.toString()}">
-    <div class="flyingButton" on:click={()=>{
+    function onKeyDown(e){
+        switch(e.keyCode) {
+			 case 75:         
+             changeVisibility();
+             break;
+		 }
+         console.log(e.keyCode);
+    }
+    function changeVisibility(){
         if(visibility === CartState.Hide || visibility === CartState.Load)
         visibility = CartState.Show;
         else
         visibility = CartState.Hide;
-        
-        }} >
+    }
+    </script>
+
+<div class="customClassNameBig {visibility.toString()}">
+    <div   
+    tabindex="0"
+    role="button"
+    class="flyingButton" 
+    on:click= {changeVisibility} 
+    on:keydown = {onKeyDown}>
 <span>t</span>
    </div>
    <div class="wrapper ">
-    <div class="itemsContainer"
+    <div 
+    tabindex="0"
+    role="button"
+    class="itemsContainer"
     on:drop={(e)=>{e.preventDefault();handleDragDrop(e)}}
     ondragover="return false" 
     bind:this={drop_zone}>
     {#each items as item}
         <ItemComponent value={item}  />
-    {/each}
-    
+    {/each} 
    </div>
    <div class="summary">
     <p>Items count {items.length}</p>
@@ -72,7 +87,7 @@
     from{
     width:1%;
     }
-    To{
+    to{
     width:20%;
     }
    }
@@ -80,7 +95,7 @@
     from{
     width:20%;
     }
-    To{
+    to{
     width:1%;
     }
    }

@@ -29,7 +29,7 @@ out:slide={{delay: 20, duration: 300, easing: quintIn, axis: 'y'}}>
         {product.Name}</div>
         {/each}
         {:else}
-        <div lass="item"
+        <div class="item"
         in:slide={{ delay: 20, duration: 300, easing: quintOut, axis: 'y' }}
         out:slide={{delay: 0, duration: 100, easing: quintIn, axis: 'y'}}>
         Brak produktów</div>
@@ -38,7 +38,8 @@ out:slide={{delay: 20, duration: 300, easing: quintIn, axis: 'y'}}>
 </div>
 
 <style>
-.item{
+.item
+{
     padding: 0.5%;
 }
     .list{
@@ -56,5 +57,9 @@ out:slide={{delay: 20, duration: 300, easing: quintIn, axis: 'y'}}>
     }
     .item:hover{
         background-color: lightgray;
+      
+    }
+    .item:last-child:hover{
+        border-radius: 0 0 10px 10px;
     }
 </style>

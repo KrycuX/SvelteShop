@@ -6,7 +6,6 @@
     export let items:Position[];
     export let visibility:CartState = CartState.Load;
     export let handleDragDrop=(e):void =>{};
-    export let drop_zone:HTMLElement;
     export let deletePosition = (id:Number) => {}
     export let updateCount = (id:Number,count:number) => {};
 
@@ -16,7 +15,6 @@
              changeVisibility();
              break;
 		 }
-         console.log(e.keyCode);
     }
     function changeVisibility(){
         if(visibility === CartState.Hide || visibility === CartState.Load)
@@ -41,8 +39,7 @@
     role="button"
     class="itemsContainer"
     on:drop={(e)=>{e.preventDefault();handleDragDrop(e)}}
-    ondragover="return false" 
-    bind:this={drop_zone}>
+    ondragover="return false" >
     {#each items as item}
         <ItemComponent value={item} deletePosition = {deletePosition} updateCount ={updateCount} />
     {/each} 

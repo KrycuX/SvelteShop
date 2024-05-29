@@ -6,9 +6,6 @@
   export let viewType:ListType;
   export let handleDragStart=(item:Product):void => {}
   export let handleDragEnd=(item:Product):void => {}
-  export let handleTouchStart=(item:Product):void => {}
-  export let handleTouchMove=(item:Product):void => {}
-  export let handleTouchEnd=(item:Product):void => {}
 
   let isDragging:boolean= false;
   let element:HTMLElement;
@@ -49,9 +46,6 @@
     isDragging=false;
     clearDragImage();
     }}
-		on:touchstart={()=>handleTouchStart(value)}
-		on:touchmove={()=>handleTouchMove(value)}
-		on:touchend={()=>handleTouchEnd(value)}
   transition:fadeSlide={{ duration: 100 }}
 >
 <div class="infoContainer">{value.Id}</div>

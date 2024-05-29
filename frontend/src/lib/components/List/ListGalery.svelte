@@ -7,10 +7,6 @@
     export let viewType:ListType;
     export let handleDragStart=(item:Product):void => {}
     export let handleDragEnd=(item:Product):void => {}
-    export let handleTouchStart=(item:Product):void => {}
-    export let handleTouchMove=(item:Product):void => {}
-    export let handleTouchEnd=(item:Product):void => {}
-
 </script>
 
 <div class="list {viewType}">
@@ -18,9 +14,6 @@
         <ItemComponent 
         handleDragStart={handleDragStart} 
         handleDragEnd={handleDragEnd}
-        handleTouchStart={handleTouchStart}
-        handleTouchMove={handleTouchMove}
-        handleTouchEnd={handleTouchEnd}
         value={item} 
         viewType={viewType} />
     {/each}

@@ -7,7 +7,8 @@
     export let visibility:CartState = CartState.Load;
     export let handleDragDrop=(e):void =>{};
     export let drop_zone:HTMLElement;
-
+    export let deletePosition = (id:Number) => {}
+    
     function onKeyDown(e){
         switch(e.keyCode) {
 			 case 75:         
@@ -42,7 +43,7 @@
     ondragover="return false" 
     bind:this={drop_zone}>
     {#each items as item}
-        <ItemComponent value={item}  />
+        <ItemComponent value={item} deletePosition = {deletePosition} />
     {/each} 
    </div>
    <div class="summary">

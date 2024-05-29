@@ -35,9 +35,9 @@ export class Cart
             return updatedItems
         });
     }
-    RemoveProductFromCart(positionId:number):void {
+    RemoveProductFromCart(positionId:Number):void {
         this.Positions.update(items=>{
-            const updatedItems= items.filter((ele,ind)=>ele.Id === positionId);
+            const updatedItems= items.filter((ele,ind)=>ele.Id !== positionId);
             saveCartItems(updatedItems);
             return updatedItems;
         });

@@ -47,6 +47,10 @@
             window.removeEventListener('scroll', handleScroll);
         };
     });
+    function deletePosition(id:Number){
+        console.log(id);
+        cart.RemoveProductFromCart(id);
+    }
     function handleDragEnd(e) {
     	if (dropped_in == false) {
           /*droppedProduct = e;*/
@@ -133,7 +137,7 @@
             viewType={toggleView}
             />     
     </div>
-    <CartComponent handleDragDrop={handleDragDrop} items = {position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show}/>	
+    <CartComponent handleDragDrop={handleDragDrop} items = {position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show} deletePosition={deletePosition}/>	
 </section>
 <style>
    section{   

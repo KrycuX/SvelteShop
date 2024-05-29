@@ -1,16 +1,18 @@
 <script lang="ts">
   import type { Position } from "$lib/models/position";
   import {fadeSlide} from "../../../../actions/fadeSlide"
-  
+  import img from "$lib/assets/icons/cross.png"
   export let value : Position;
-
+  export let deletePosition = (id:Number) => {};
 </script>
 
 <div
   class="itemGalery"
   transition:fadeSlide={{ duration: 100 }}>
-  <img src={value.Product.Picture} alt="" />
-  <div class="infoContainer">{value.Product.Name}</div>
+  <div class="infoContainer">{value.Product.Name} {value.Id}
+    <img class ="pic" src={value.Product.Picture} alt="" />
+  </div>
+  <img class="deleteButton" on:click={()=>{deletePosition(value.Id)}}  src = {img} alt=""/>
 </div>
 
 <style>
@@ -30,14 +32,20 @@
     box-shadow: 0.1em 0.1em 0.1em 0.1em gray;
     transition: ease;
   }
-  img {
-    justify-content: center;
-    align-items: center;
+  .pic {
+
     width: 50%;
   }
-
+.deleteButton{
+    bottom:0;
+    width: 50%;
+}
   .infoContainer {
-    padding: 1em;
+    display: block;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   }
   .itemGalery:hover {

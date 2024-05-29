@@ -5,19 +5,13 @@
 <header>
     <nav>
         <ul>
-            <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
-                <a href="/">About me</a>
-            </li>
+        
             <li
-                aria-current={$page.url.pathname === "/shopCart"
-                    ? "page"
-                    : undefined}
-            >
-                <a href="/shopCart">Skils</a>
-            </li>
-            <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
+            aria-current={$page.url.pathname === "/shopCart"
+                ? "page"
+                : undefined}>
                 <a
-                    href="http://www.youtube.com"
+                    href="/shopCart"
                     target="_blank"
                     rel="noopener noreferrer">Koszyk </a
                 >

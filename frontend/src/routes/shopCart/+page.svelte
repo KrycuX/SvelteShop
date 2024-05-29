@@ -3,8 +3,9 @@
   import type { Position } from "$lib/models/position";
 
 let cart:Cart = new Cart();
-cart.Positions.subscribe(items=>{position=items})
 let position:Position[]
+cart.Positions.subscribe(items=>{position=items})
+
 </script>
 
 <section>

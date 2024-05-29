@@ -8,7 +8,8 @@
     export let handleDragDrop=(e):void =>{};
     export let drop_zone:HTMLElement;
     export let deletePosition = (id:Number) => {}
-    
+    export let updateCount = (id:Number,count:number) => {};
+
     function onKeyDown(e){
         switch(e.keyCode) {
 			 case 75:         
@@ -43,7 +44,7 @@
     ondragover="return false" 
     bind:this={drop_zone}>
     {#each items as item}
-        <ItemComponent value={item} deletePosition = {deletePosition} />
+        <ItemComponent value={item} deletePosition = {deletePosition} updateCount ={updateCount} />
     {/each} 
    </div>
    <div class="summary">

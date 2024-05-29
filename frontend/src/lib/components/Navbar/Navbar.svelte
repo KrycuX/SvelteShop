@@ -4,12 +4,10 @@
 
 <header>
     <nav>
-        <ul>
-        
+        <ul>     
             <li>
                 <a
                     href="/shopCart">Koszyk </a>
-               
             </li>
         </ul>
     </nav>

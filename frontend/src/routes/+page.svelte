@@ -48,9 +48,12 @@
         };
     });
     function deletePosition(id:Number){
-        console.log(id);
         cart.RemoveProductFromCart(id);
     }
+    function updateCount(id:Number,count:number){
+        cart.UpdatePosition(id,count);
+    }
+    
     function handleDragEnd(e) {
     	if (dropped_in == false) {
           /*droppedProduct = e;*/
@@ -65,7 +68,6 @@
      function handleDragDrop(e:DragEvent) {
         if(droppedProduct !== undefined){
             cart.AddProductToCart(new Position(1,droppedProduct));      
-
         }
         droppedProduct = undefined;
     
@@ -137,13 +139,18 @@
             viewType={toggleView}
             />     
     </div>
-    <CartComponent handleDragDrop={handleDragDrop} items = {position}  bind:drop_zone={drop_zone_1} bind:visibility={sideBar_show} deletePosition={deletePosition}/>	
+    <CartComponent 
+    handleDragDrop={handleDragDrop} 
+    items = {position}  
+    bind:drop_zone={drop_zone_1} 
+    bind:visibility={sideBar_show} 
+    deletePosition={deletePosition} 
+    updateCount ={updateCount}/>	
 </section>
 <style>
    section{   
     display: flex;
    }
-
    .content{   
     width: 100%; 
     padding: 1rem;
@@ -158,7 +165,7 @@
     @keyframes slideRight{ 
     from
     {
-        padding-right:20%;
+    padding-right:20%;
     }
     to
     {       
@@ -185,13 +192,11 @@
         margin-top:0.1%;
         position: fixed;
         top:0;
-        width: 75%; 
         animation: SearchScrolled 0.3s linear 0s 1 normal forwards;    
     }
 
     @keyframes SearchScrolled{ 
     from
-
     {   top:1;
         width:100%;
     }

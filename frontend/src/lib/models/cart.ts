@@ -1,3 +1,4 @@
+import type { PostfixUnaryExpression } from "typescript";
 import type { Position } from "./position"
 import { writable, type Writable } from "svelte/store"
 
@@ -30,16 +31,38 @@ export class Cart
 
     AddProductToCart(positionToAdd:Position):void {
         this.Positions.update(items=>{
-            const updatedItems= [...items,positionToAdd]
+            let index:number = items.findIndex(x => x.Product.Id === positionToAdd.Product.Id);
+            let updatedItems:Position[];
+            if(index !== undefined && index >= 0)
+            {
+                items[index].Count += positionToAdd.Count;
+                updatedItems =[...items];
+            }   
+             else  
+                updatedItems = [...items,positionToAdd];
+
             saveCartItems(updatedItems);
             return updatedItems
         });
     }
     RemoveProductFromCart(positionId:Number):void {
-        this.Positions.update(items=>{
+            this.Positions.update(items=>{
             const updatedItems= items.filter((ele,ind)=>ele.Id !== positionId);
             saveCartItems(updatedItems);
             return updatedItems;
         });
+    }
+    UpdatePosition(positionId:Number,count:number):void
+    {
+        this.Positions.update(items=>{
+            let index:number = items.findIndex(x => x.Product.Id === positionId);
+            let updatedItems:Position[];
+            if(index !== undefined && index >= 0)
+                items[index].Count = count;              
+            
+            updatedItems =[...items];
+            saveCartItems(updatedItems);
+            return updatedItems;
+    });
     }
 }

@@ -15,7 +15,7 @@ export class Position
     constructor(Count: number,Product: Product)
     {
     this.Id = Position._Id++;
-    this.Count = 0;
+    this.Count = Count;
     this.Product = Product;
     }
 }

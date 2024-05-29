@@ -9,7 +9,7 @@
 <div
   class="itemGalery"
   transition:fadeSlide={{ duration: 100 }}>
-  <div class="infoContainer">{value.Product.Name} {value.Id}
+  <div class="infoContainer"><p>{value.Product.Name}</p>
     <img class ="pic" src={value.Product.Picture} alt="" />
   </div>
   <img class="deleteButton" on:click={()=>{deletePosition(value.Id)}}  src = {img} alt=""/>
@@ -17,7 +17,7 @@
 
 <style>
  .itemGalery {
-    padding: 1%;
+    padding: 3%;
     flex: 1;
     flex-basis: 40%;
     width: 40%;
@@ -41,7 +41,7 @@
     width: 50%;
 }
   .infoContainer {
-    display: block;
+    display:block;
     position: relative;
     text-align: center;
     align-items: center;

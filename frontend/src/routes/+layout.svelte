@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from "$lib/components/Navbar/Navbar.svelte";
+	import Navbar from "$lib/components/Navbar/Navbar.svelte";
 	import "$lib/assets/styles/style.css";
 </script>
 
@@ -9,7 +9,7 @@
 </svelte:head>
 <div class="app">
 	<div class="navbar">
-		<Header />
+		<Navbar />
 	</div>
 			
 		<main>

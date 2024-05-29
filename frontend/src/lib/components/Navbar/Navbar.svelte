@@ -6,15 +6,9 @@
     <nav>
         <ul>
         
-            <li
-            aria-current={$page.url.pathname === "/shopCart"
-                ? "page"
-                : undefined}>
+            <li>
                 <a
-                    href="/shopCart"
-                    target="_blank"
-                    rel="noopener noreferrer">Koszyk </a
-                >
+                    href="/shopCart">Koszyk </a>
                
             </li>
         </ul>

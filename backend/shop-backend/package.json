@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "clean": "cross-env ./node_modules/.bin/rimraf dist",
-    "build": "cross-env npm run clean && npm run build:server",
+    "build": "npm run build && medusa migrations run",
     "build:server": "cross-env npm run clean && tsc -p tsconfig.server.json",
 
     "watch": "cross-env tsc --watch",

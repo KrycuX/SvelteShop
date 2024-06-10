@@ -1,21 +1,12 @@
 const express = require("express")
 const { GracefulShutdownServer } = require("medusa-core-utils")
 
-const loaders = require("@medusajs/medusa/dist/loaders/index").default
-
 ;(async() => {
   async function start() {
     const app = express()
-    const directory = process.cwd()
-
     try {
-      const { container } = await loaders({
-        directory,
-        expressApp: app
-      })
-      const configModule = container.resolve("configModule")
-      const port = process.env.PORT ?? configModule.projectConfig.port ?? 9000
 
+      const port = process.env.PORT ?? 9000
       const server = GracefulShutdownServer.create(
         app.listen(port, (err) => {
           if (err) {
